@@ -15,5 +15,12 @@ namespace ConexionSQL.Models
 
         }
         public virtual DbSet<TablaPaciente> TablaPaciente { get; set; }
+        public DbSet<ATuSalud.Models.TablaRecetas> TablaRecetas { get; set; }
+        public DbSet<ATuSalud.Models.TablaPatologias> TablaPatologias { get; set; }
+        public DbSet<ATuSalud.Models.TablaMedicamentos> TablaMedicamentos { get; set; }
+
+       
+
+
     }
 }
