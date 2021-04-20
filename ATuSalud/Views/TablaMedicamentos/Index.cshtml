@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ATuSalud.Models.TablaMedicamentos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_medicamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forma_farmaceutica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Efectos_secundarios)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre_medicamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forma_farmaceutica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Efectos_secundarios)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
