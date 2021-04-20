@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ATuSalud.Models.TablaCitasPaciente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TablaPacienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TablaProfesionalId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_atencion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_acabar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_registro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablaPacienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablaProfesionalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_atencion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_acabar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_registro)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
