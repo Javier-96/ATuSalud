@@ -15,5 +15,8 @@ namespace ConexionSQL.Models
 
         }
         public virtual DbSet<TablaPaciente> TablaPaciente { get; set; }
+        public virtual DbSet<TablaProfesional> TablaProfesional { get; set; }
+        public virtual DbSet<TablaReservaEspacios> TablaReservaEspacios { get; set; }
+        public virtual DbSet<TablaProfesional_Paciente> TablaProfesional_Paciente{ get; set; }
     }
 }
