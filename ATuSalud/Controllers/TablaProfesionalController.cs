@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ATuSalud.Models;
 using ConexionSQL.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace ATuSalud.Controllers
 {
@@ -54,10 +56,18 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nombre,apellido1,apellido2,especialidad,num_colegiado,foto")] TablaProfesional tablaProfesional)
+        public async Task<IActionResult> Create(TablaProfesional tablaProfesional, IFormFile fichero)
         {
             if (ModelState.IsValid)
             {
+                if (fichero != null)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        fichero.CopyTo(ms);
+                        tablaProfesional.foto = ms.ToArray();
+                    }
+                }
                 _context.Add(tablaProfesional);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -148,6 +158,12 @@ namespace ATuSalud.Controllers
         private bool TablaProfesionalExists(int id)
         {
             return _context.TablaProfesional.Any(e => e.id == id);
+        }
+
+        public IActionResult MostrarImagen(int id)
+        {
+            TablaProfesional i = _context.TablaProfesional.Find(id);
+            return File(i.foto, "image/jpeg");
         }
     }
 }
