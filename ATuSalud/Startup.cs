@@ -1,6 +1,8 @@
+using ConexionSQL.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,9 @@ namespace ATuSalud
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            string v = this.Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<Contexto>(x => x.UseMySql(v));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
