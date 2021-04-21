@@ -4,22 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="btn btn-info">
+    <a asp-action="Create" style="color: white;">Añadir episodio</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="bg-info text-light">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PacienteId)
+                Paciente Id
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaInicio)
+                Fecha inicio
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaFinal)
+                Fecha final
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Motivo)
@@ -55,9 +53,9 @@
                 @Html.DisplayFor(modelItem => item.Medicación)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
             </td>
         </tr>
 }

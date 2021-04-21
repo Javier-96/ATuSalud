@@ -12,7 +12,7 @@ namespace ATuSalud.Models
 
         [Column("Id_Paciente")]
         public int PacienteId { get; set; }
-
+        public TablaPaciente Paciente { get; set; }
         public string Familiar { get; set; }
         public string Enfermedad { get; set; }
     }
