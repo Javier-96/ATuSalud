@@ -7,39 +7,8 @@
 <h4>Añadir Profesional</h4>
 <hr />
 <form asp-action="Create" enctype="multipart/form-data">
-    <div class="row">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group col-lg-4 col-12">
-            <div>Nombre</div>
-            <input asp-for="nombre" class="form-control" />
-            <span asp-validation-for="nombre" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-4 col-12">
-            <div>Primer Apellido</div>
-            <input asp-for="apellido1" class="form-control" />
-            <span asp-validation-for="apellido1" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-4 col-12">
-            <div>Segundo Apellido</div>
-            <input asp-for="apellido2" class="form-control" />
-            <span asp-validation-for="apellido2" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-6 col-12">
-            <div>Especialidad</div>
-            <input asp-for="especialidad" class="form-control" />
-            <span asp-validation-for="especialidad" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-6 col-12">
-            <div>Número de colegiado</div>
-            <input asp-for="num_colegiado" class="form-control" />
-            <span asp-validation-for="num_colegiado" class="text-danger"></span>
-        </div>
-        <div class="form-group col-12">
-            <div>Subir foto</div>
-            <input type="file" name="fichero" class="form-control" />
-            <span asp-validation-for="foto" class="text-danger"></span>
-        </div>
-        <div class="form-group col-3">
+    @Html.EditorForModel()
+        <div class="form-group col-12 col-md-3">
             <input type="submit" value="Create" class="btn btn-dark" />
         </div>
     </div>
