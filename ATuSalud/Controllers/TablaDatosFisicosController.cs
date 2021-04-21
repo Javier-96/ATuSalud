@@ -54,7 +54,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TablaDatosFisicosId,Nombre,Peso,Altura,Alergias,Grupo_sanguineo,Fumador,Drogas")] TablaDatosFisicos tablaDatosFisicos)
+        public async Task<IActionResult> Create([Bind("Id,PacienteId,Nombre,Peso,Altura,Alergias,Grupo_sanguineo,Fumador,Drogas")] TablaDatosFisicos tablaDatosFisicos)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TablaDatosFisicosId,Nombre,Peso,Altura,Alergias,Grupo_sanguineo,Fumador,Drogas")] TablaDatosFisicos tablaDatosFisicos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,PacienteId,Nombre,Peso,Altura,Alergias,Grupo_sanguineo,Fumador,Drogas")] TablaDatosFisicos tablaDatosFisicos)
         {
             if (id != tablaDatosFisicos.Id)
             {

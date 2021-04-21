@@ -20,4 +20,8 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\TablaPacientes\EditorTemplates\" />
+  </ItemGroup>
+
 </Project>
