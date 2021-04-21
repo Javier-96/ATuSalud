@@ -46,6 +46,7 @@ namespace ATuSalud.Controllers
         // GET: TablaAntecedentes/Create
         public IActionResult Create()
         {
+            ViewData["Antecedentes"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
             return View();
         }
 
@@ -54,7 +55,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Id_Paciente,Familiar,Enfermedad")] TablaAntecedentes tablaAntecedentes)
+        public async Task<IActionResult> Create( TablaAntecedentes tablaAntecedentes)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +87,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Id_Paciente,Familiar,Enfermedad")] TablaAntecedentes tablaAntecedentes)
+        public async Task<IActionResult> Edit(int id, TablaAntecedentes tablaAntecedentes)
         {
             if (id != tablaAntecedentes.Id)
             {

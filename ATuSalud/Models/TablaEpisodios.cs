@@ -17,6 +17,7 @@ namespace ATuSalud.Models
         public DateTime FechaFinal { get; set; }
         public string Motivo { get; set; }
         public string Causa { get; set; }
+        [Column("Medicacion")]
         public string Medicación { get; set; }
 
     }
