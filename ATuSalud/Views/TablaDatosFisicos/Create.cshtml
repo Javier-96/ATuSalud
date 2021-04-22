@@ -8,56 +8,59 @@
 
 <h4>TablaDatosFisicos</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="PacienteId" class="control-label"></label>
-                <input asp-for="PacienteId" class="form-control" />
-                <span asp-validation-for="PacienteId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Peso" class="control-label"></label>
-                <input asp-for="Peso" class="form-control" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Altura" class="control-label"></label>
-                <input asp-for="Altura" class="form-control" />
-                <span asp-validation-for="Altura" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Alergias" class="control-label"></label>
-                <input asp-for="Alergias" class="form-control" />
-                <span asp-validation-for="Alergias" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Grupo_sanguineo" class="control-label"></label>
-                <input asp-for="Grupo_sanguineo" class="form-control" />
-                <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Fumador" /> @Html.DisplayNameFor(model => model.Fumador)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Drogas" /> @Html.DisplayNameFor(model => model.Drogas)
-                </label>
-            </div>
-            <div class="form-group">
+<form asp-action="Create">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Id del paciente</label>
+            <input asp-for="PacienteId" class="form-control" />
+            <span asp-validation-for="PacienteId" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Nombre</label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Peso</label>
+            <input asp-for="Peso" class="form-control" />
+            <span asp-validation-for="Peso" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Altura</label>
+            <input asp-for="Altura" class="form-control" />
+            <span asp-validation-for="Altura" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Alergias</label>
+            <input asp-for="Alergias" class="form-control" />
+            <span asp-validation-for="Alergias" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Grupo sanguineo</label>
+            <input asp-for="Grupo_sanguineo" class="form-control" />
+            <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label class="form-check-label">
+                @Html.DisplayNameFor(model => model.Fumador)<input class="form-check-input ml-3" asp-for="Fumador" />
+            </label>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label class="form-check-label">
+                @Html.DisplayNameFor(model => model.Drogas)<input class="form-check-input ml-3" asp-for="Drogas" />
+
+            </label>
+        </div>
+    </div>
+        <div class="row">
+            <div class="form-group col-3">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
-</div>
+        </div>
+    
+    
+</form>
 
 <div>
     <a asp-action="Index">Back to List</a>
@@ -66,3 +69,12 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+<div class="row">
+    <div class="col-12">
+
+
+    </div>
+
+</div>

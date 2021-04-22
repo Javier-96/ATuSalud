@@ -1,11 +1,3 @@
-CREATE TABLE TablaAntecedentes(
-	Id INT PRIMARY KEY AUTO_INCREMENT,
-	Id_Paciente INT,
-	FOREIGN KEY (Id_Paciente) REFERENCES TablaPaciente (Id),
-	Familiar VARCHAR(200),
-	Enfermedad VARCHAR(200)
-)
-
 CREATE TABLE TablaEpisodios(
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Id_Paciente INT,
@@ -17,6 +9,14 @@ CREATE TABLE TablaEpisodios(
 	Medicacion VARCHAR(200)
 )
 
+CREATE TABLE TablaAntecedentes(
+	Id INT PRIMARY KEY AUTO_INCREMENT,
+	Id_Paciente INT,
+	FOREIGN KEY (Id_Paciente) REFERENCES TablaPaciente (Id),
+	Familiar VARCHAR(200),
+	Enfermedad VARCHAR(200)
+)
+
 CREATE TABLE TablaEspacios(
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Id_Reserva INT,
@@ -26,18 +26,11 @@ CREATE TABLE TablaEspacios(
 )
 
 
-ALTER TABLE TablaEpisodios CHANGE Fecha_inicio FechaInicio DATETIME
-
-
-ALTER TABLE TablaEpisodios CHANGE Fecha_final FechaFinal DATETIME
-
-
 CREATE TABLE TablaCodigoCIAP(
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Codigo VARCHAR(200),
 	Color VARCHAR(200),
-	Enfermedad VARCHAR(200)
-	
+	Enfermedad VARCHAR(200)	
 )
 
 ALTER TABLE TablaPatologias DROP COLUMN Patologia
