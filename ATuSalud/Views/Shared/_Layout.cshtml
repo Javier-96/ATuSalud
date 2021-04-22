@@ -23,11 +23,29 @@
                             Administracion
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Pacientes</a>
+                            <a class="dropdown-item" asp-controller="TablaAntecedentes" asp-action="index">TablaAntecedentes</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Profesionales</a>
+                            <a class="dropdown-item" asp-controller="TablaCitasPacientes" asp-action="index">TablaCitasPacientes</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Citas medicas</a>
+                            <a class="dropdown-item" asp-controller="TablaDatosFisicos" asp-action="index">TablaDatosFisicos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaEpisodios" asp-action="index">TablaEpisodios</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaEspacios" asp-action="index">TablaEspacios</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaMedicamentos" asp-action="index">TablaMedicamentos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaPacientes" asp-action="index">TablaPacientes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaPatologias" asp-action="index">TablaPatologias</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaProfesional" asp-action="index">TablaProfesional</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaProfesional_Paciente" asp-action="index">TablaProfesional_Paciente</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaRecientes" asp-action="index">TablaRecientes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaReservaEspacios" asp-action="index">TablaReservaEspacios</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -44,10 +62,28 @@
     </div>
 
     <footer class="border-top footer text-muted">
-            <div class="row p-10" style="background-color: #81BFFE;">
-                <div class="col-md-4 col-xs-12">&copy; 2021 - ATuSalud -</div>
-                <div class="col-md-4 col-xs-12 p-10">&copy; 2021 - ATuSalud -</div>
-                <div class="col-md-4 col-xs-12 p-10">&copy; 2021 - ATuSalud -</div>
+            <div class="row p-10" style="background-color: #81BFFE; text-align: center;">
+                <div class="col-md-4 col-xs-12">
+                    <br />
+                    <h2><strong>Contáctanos</strong></h2>
+                    <ul style="text-align:justify center; padding:30px; list-style:none;">
+                        <li><strong>Whatsapp:</strong><a href="https://wa.me/34643564564"> 643564564</a></li>
+                        <li><strong>Teléfono:</strong> 980345234</li>
+                        <li><strong>Email:</strong><a href="mailto:info@atusalud.com"> info@atusalud.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <br />
+                    <h2><strong>Visita nuestra clínica</strong></h2>
+                    <ul style="text-align:justify center; padding:30px; list-style:none;">
+                        <li><a>C/ Majadero 36 4ºC</a></li>
+                        <li><a>50006 Zaragoza</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <br />
+                    <img src="/img/logo.png" width="75%" />
+                </div>
             </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

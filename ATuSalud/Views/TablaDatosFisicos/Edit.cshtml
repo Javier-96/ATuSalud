@@ -8,38 +8,38 @@
 
 <h4>TablaDatosFisicos</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<form asp-action="Edit">
+    <div class="row">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="PacienteId" class="control-label"></label>
+                <label>Id del paciente</label>
                 <input asp-for="PacienteId" class="form-control" />
                 <span asp-validation-for="PacienteId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
+                <label>Nombre</label>
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Peso" class="control-label"></label>
+                <label>Peso</label>
                 <input asp-for="Peso" class="form-control" />
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Altura" class="control-label"></label>
+                <label>Altura</label>
                 <input asp-for="Altura" class="form-control" />
                 <span asp-validation-for="Altura" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Alergias" class="control-label"></label>
+                <label>Alergias</label>
                 <input asp-for="Alergias" class="form-control" />
                 <span asp-validation-for="Alergias" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Grupo_sanguineo" class="control-label"></label>
+                <label>Grupo sanguineo</label>
                 <input asp-for="Grupo_sanguineo" class="form-control" />
                 <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
             </div>
@@ -56,9 +56,8 @@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
-</div>
+        </div>
+</form>
 
 <div>
     <a asp-action="Index">Back to List</a>

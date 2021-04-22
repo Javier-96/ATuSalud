@@ -73,12 +73,12 @@ namespace ATuSalud.Controllers
             {
                 return NotFound();
             }
-
             var tablaAntecedentes = await _context.TablaAntecedentes.FindAsync(id);
             if (tablaAntecedentes == null)
             {
                 return NotFound();
             }
+            ViewData["Antecedentes"] = new SelectList(_context.TablaPaciente, "Id", "Nombre",tablaAntecedentes.PacienteId);
             return View(tablaAntecedentes);
         }
 
