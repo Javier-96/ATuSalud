@@ -4,31 +4,29 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>TablaCitasPaciente</h4>
+<h4>Añadir Citas Pacientes</h4>
 <hr />
 
 <form asp-action="Create">
     <div class="row">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group col-12">
+        <div class="form-group col-xs-12 col-lg-4">
             <label asp-for="TablaPacienteId" class="control-label"></label>
             <input asp-for="TablaPacienteId" class="form-control" />
             <span asp-validation-for="TablaPacienteId" class="text-danger"></span>
         </div>
-        <div class="form-group col-12">
+        <div class="form-group col-xs-12 col-lg-4">
             <label asp-for="TablaProfesionalId" class="control-label"></label>
             <input asp-for="TablaProfesionalId" class="form-control" />
             <span asp-validation-for="TablaProfesionalId" class="text-danger"></span>
         </div>
-        <div class="form-group col-12">
+        <div class="form-group col-xs-12 col-lg-4">
             <label asp-for="Fecha_atencion" class="control-label"></label>
             <input asp-for="Fecha_atencion" class="form-control" />
             <span asp-validation-for="Fecha_atencion" class="text-danger"></span>
         </div>
         <div class="form-group col-12">
-            <label asp-for="Fecha_acabar" class="control-label"></label>
+            <label>Fecha de finalización</label>
             <input asp-for="Fecha_acabar" class="form-control" />
             <span asp-validation-for="Fecha_acabar" class="text-danger"></span>
         </div>
@@ -38,19 +36,19 @@
             <span asp-validation-for="Observaciones" class="text-danger"></span>
         </div>
         <div class="form-group col-12">
-            <label asp-for="Fecha_registro" class="control-label"></label>
+            <label>Fecha de registro</label>
             <input asp-for="Fecha_registro" class="form-control" />
             <span asp-validation-for="Fecha_registro" class="text-danger"></span>
         </div>
         <div class="form-group col-12">
-            <input type="submit" value="Create" class="btn btn-primary" />
+            <input type="submit" value="Crear" class="btn btn-primary" />
         </div>
     </div>
 </form>
 
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a tabla</a>
 </div>
 
 @section Scripts {
