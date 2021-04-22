@@ -19,13 +19,14 @@ namespace ATuSalud.Controllers
             _context = context;
         }
 
-        // GET: TablaReservaEspacios
+        // GET: TablaReservaEspacios1
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaReservaEspacios.ToListAsync());
+            var contexto = _context.TablaReservaEspacios.Include(t => t.Profesional);
+            return View(await contexto.ToListAsync());
         }
 
-        // GET: TablaReservaEspacios/Details/5
+        // GET: TablaReservaEspacios1/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,6 +35,7 @@ namespace ATuSalud.Controllers
             }
 
             var tablaReservaEspacios = await _context.TablaReservaEspacios
+                .Include(t => t.Profesional)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaReservaEspacios == null)
             {
@@ -43,13 +45,14 @@ namespace ATuSalud.Controllers
             return View(tablaReservaEspacios);
         }
 
-        // GET: TablaReservaEspacios/Create
+        // GET: TablaReservaEspacios1/Create
         public IActionResult Create()
         {
+            ViewData["ProfesionalId"] = new SelectList(_context.TablaProfesional, "id", "nombre");
             return View();
         }
 
-        // POST: TablaReservaEspacios/Create
+        // POST: TablaReservaEspacios1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -62,10 +65,11 @@ namespace ATuSalud.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProfesionalId"] = new SelectList(_context.TablaProfesional, "id", "nombre", tablaReservaEspacios.ProfesionalId);
             return View(tablaReservaEspacios);
         }
 
-        // GET: TablaReservaEspacios/Edit/5
+        // GET: TablaReservaEspacios1/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,10 +82,11 @@ namespace ATuSalud.Controllers
             {
                 return NotFound();
             }
+            ViewData["ProfesionalId"] = new SelectList(_context.TablaProfesional, "id", "nombre", tablaReservaEspacios.ProfesionalId);
             return View(tablaReservaEspacios);
         }
 
-        // POST: TablaReservaEspacios/Edit/5
+        // POST: TablaReservaEspacios1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -113,10 +118,11 @@ namespace ATuSalud.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProfesionalId"] = new SelectList(_context.TablaProfesional, "id", "nombre", tablaReservaEspacios.ProfesionalId);
             return View(tablaReservaEspacios);
         }
 
-        // GET: TablaReservaEspacios/Delete/5
+        // GET: TablaReservaEspacios1/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,6 +131,7 @@ namespace ATuSalud.Controllers
             }
 
             var tablaReservaEspacios = await _context.TablaReservaEspacios
+                .Include(t => t.Profesional)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaReservaEspacios == null)
             {
@@ -134,7 +141,7 @@ namespace ATuSalud.Controllers
             return View(tablaReservaEspacios);
         }
 
-        // POST: TablaReservaEspacios/Delete/5
+        // POST: TablaReservaEspacios1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
