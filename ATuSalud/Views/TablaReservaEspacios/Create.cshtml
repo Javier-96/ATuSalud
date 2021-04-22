@@ -8,39 +8,40 @@
 
 <h4>TablaReservaEspacios</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <div>Id del Profesional</div>
-                <select asp-for="ProfesionalId" class="form-control" asp-items="ViewBag.ProfesionalId"></select>
-                <span asp-validation-for="ProfesionalId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Espacio" class="control-label"></label>
-                <input asp-for="Espacio" class="form-control" />
-                <span asp-validation-for="Espacio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaInicio" class="control-label"></label>
-                <input asp-for="FechaInicio" class="form-control" />
-                <span asp-validation-for="FechaInicio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaFin" class="control-label"></label>
-                <input asp-for="FechaFin" class="form-control" />
-                <span asp-validation-for="FechaFin" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<form asp-action="Create" enctype="multipart/form-data">
+    <div class="row">
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-lg-6 col-12">
+            <label>Id del Profesional</label>
+            <select asp-for="ProfesionalId" class="form-control" asp-items="ViewBag.ProfesionalId"></select>
+            <span asp-validation-for="ProfesionalId" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-6 col-12">
+            <label asp-for="Espacio" class="control-label"></label>
+            <input asp-for="Espacio" class="form-control" />
+            <span asp-validation-for="Espacio" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-6 col-12">
+            <label >Fecha de Inicio</label>
+            <input asp-for="FechaInicio" class="form-control" />
+            <span asp-validation-for="FechaInicio" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-6 col-12">
+            <label>Fecha de Final</label>
+            <input asp-for="FechaFin" class="form-control" />
+            <span asp-validation-for="FechaFin" class="text-danger"></span>
+        </div>
+        <div class="form-group col-3">
+            <input type="submit" value="Crear" class="btn btn-primary" />
+        </div>
+        </div>
+</form>
+
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {
