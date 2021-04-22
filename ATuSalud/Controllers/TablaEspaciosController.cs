@@ -22,7 +22,8 @@ namespace ATuSalud.Controllers
         // GET: TablaEspacios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaEspacios.ToListAsync());
+            var contexto = _context.TablaEspacios.Include(t => t.Reserva);
+            return View(await contexto.ToListAsync());
         }
 
         // GET: TablaEspacios/Details/5
@@ -34,6 +35,7 @@ namespace ATuSalud.Controllers
             }
 
             var tablaEspacios = await _context.TablaEspacios
+                .Include(t => t.Reserva)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaEspacios == null)
             {
@@ -46,6 +48,7 @@ namespace ATuSalud.Controllers
         // GET: TablaEspacios/Create
         public IActionResult Create()
         {
+            ViewData["ReservaID"] = new SelectList(_context.TablaReservaEspacios, "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ReservaEspacio,EspacioGeneral,Mobiliario")] TablaEspacios tablaEspacios)
+        public async Task<IActionResult> Create([Bind("Id,ReservaID,EspacioGeneral,Mobiliario")] TablaEspacios tablaEspacios)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace ATuSalud.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ReservaID"] = new SelectList(_context.TablaReservaEspacios, "Id", "Id", tablaEspacios.ReservaID);
             return View(tablaEspacios);
         }
 
@@ -78,6 +82,7 @@ namespace ATuSalud.Controllers
             {
                 return NotFound();
             }
+            ViewData["ReservaID"] = new SelectList(_context.TablaReservaEspacios, "Id", "Id", tablaEspacios.ReservaID);
             return View(tablaEspacios);
         }
 
@@ -86,7 +91,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ReservaEspacio,EspacioGeneral,Mobiliario")] TablaEspacios tablaEspacios)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ReservaID,EspacioGeneral,Mobiliario")] TablaEspacios tablaEspacios)
         {
             if (id != tablaEspacios.Id)
             {
@@ -113,6 +118,7 @@ namespace ATuSalud.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ReservaID"] = new SelectList(_context.TablaReservaEspacios, "Id", "Id", tablaEspacios.ReservaID);
             return View(tablaEspacios);
         }
 
@@ -125,6 +131,7 @@ namespace ATuSalud.Controllers
             }
 
             var tablaEspacios = await _context.TablaEspacios
+                .Include(t => t.Reserva)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaEspacios == null)
             {

@@ -11,7 +11,8 @@ namespace ATuSalud.Models
         public int Id { get; set; }
 
         [Column("Id_Reserva")]
-        public int ReservaEspacio { get; set; }
+        public int ReservaID { get; set; }
+        public TablaReservaEspacios Reserva { get; set; }
         public string EspacioGeneral { get; set; }
         public string Mobiliario { get; set; }
     }
