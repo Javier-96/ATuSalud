@@ -4,54 +4,50 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>TablaEpisodios</h4>
+<h4>Editar episodios</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="PacienteId" class="control-label"></label>
-                <input asp-for="PacienteId" class="form-control" />
-                <span asp-validation-for="PacienteId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaInicio" class="control-label"></label>
-                <input asp-for="FechaInicio" class="form-control" />
-                <span asp-validation-for="FechaInicio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaFinal" class="control-label"></label>
-                <input asp-for="FechaFinal" class="form-control" />
-                <span asp-validation-for="FechaFinal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Motivo" class="control-label"></label>
-                <input asp-for="Motivo" class="form-control" />
-                <span asp-validation-for="Motivo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Causa" class="control-label"></label>
-                <input asp-for="Causa" class="form-control" />
-                <span asp-validation-for="Causa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Medicación" class="control-label"></label>
-                <input asp-for="Medicación" class="form-control" />
-                <span asp-validation-for="Medicación" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Edit">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group col-lg-4 col-12">
+            <label> Id Paciente</label>
+            <input asp-for="PacienteId" class="form-control" />
+            <span asp-validation-for="PacienteId" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4 col-12">
+            <label>Fecha de inicio</label>
+            <input asp-for="FechaInicio" class="form-control" />
+            <span asp-validation-for="FechaInicio" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4 col-12">
+            <label>Fecha de finalización</label>
+            <input asp-for="FechaFinal" class="form-control" />
+            <span asp-validation-for="FechaFinal" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4 col-12">
+            <label asp-for="Motivo" class="control-label"></label>
+            <input asp-for="Motivo" class="form-control" />
+            <span asp-validation-for="Motivo" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4 col-12">
+            <label asp-for="Causa" class="control-label"></label>
+            <input asp-for="Causa" class="form-control" />
+            <span asp-validation-for="Causa" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4 col-12">
+            <label asp-for="Medicación" class="control-label"></label>
+            <input asp-for="Medicación" class="form-control" />
+            <span asp-validation-for="Medicación" class="text-danger"></span>
+        </div>
+        <div class="form-group col-3">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+        </div>
     </div>
-</div>
+</form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {
