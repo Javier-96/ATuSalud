@@ -4,63 +4,61 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>TablaDatosFisicos</h4>
+<h4>Editar datos fisicos</h4>
 <hr />
 <form asp-action="Edit">
     <div class="row">
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label>Id del paciente</label>
-                <input asp-for="PacienteId" class="form-control" />
-                <span asp-validation-for="PacienteId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Nombre</label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Peso</label>
-                <input asp-for="Peso" class="form-control" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Altura</label>
-                <input asp-for="Altura" class="form-control" />
-                <span asp-validation-for="Altura" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Alergias</label>
-                <input asp-for="Alergias" class="form-control" />
-                <span asp-validation-for="Alergias" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Grupo sanguineo</label>
-                <input asp-for="Grupo_sanguineo" class="form-control" />
-                <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Fumador" /> @Html.DisplayNameFor(model => model.Fumador)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Drogas" /> @Html.DisplayNameFor(model => model.Drogas)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Id del paciente</label>
+            <input asp-for="PacienteId" class="form-control" />
+            <span asp-validation-for="PacienteId" class="text-danger"></span>
         </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Nombre</label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Peso</label>
+            <input asp-for="Peso" class="form-control" />
+            <span asp-validation-for="Peso" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Altura</label>
+            <input asp-for="Altura" class="form-control" />
+            <span asp-validation-for="Altura" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Alergias</label>
+            <input asp-for="Alergias" class="form-control" />
+            <span asp-validation-for="Alergias" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Grupo sanguineo</label>
+            <input asp-for="Grupo_sanguineo" class="form-control" />
+            <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Fumador" /> @Html.DisplayNameFor(model => model.Fumador)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Drogas" /> @Html.DisplayNameFor(model => model.Drogas)
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+        </div>
+    </div>
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {
