@@ -61,10 +61,10 @@
             <input asp-for="Sexo" class="form-control" />
             <span asp-validation-for="Sexo" class="text-danger"></span>
         </div>
-        <div class="form-group form-check">
+        <div class="form-group form-check col-md-4 col-xs-12">
             <label class="form-check-label">
-                <input class="form-check-input md-4" asp-for="Seguro_privado" /> @Html.DisplayNameFor(model => model.Seguro_privado)
             </label>
+            <input class="form-check-input" asp-for="Seguro_privado" /> @Html.DisplayNameFor(model => model.Seguro_privado)
         </div>
     </div>     
 </form>
