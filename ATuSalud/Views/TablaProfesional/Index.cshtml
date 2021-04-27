@@ -51,9 +51,11 @@
             </td>
            
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+                <input type="button" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.id" value="Editar">
+                <input type="button" class="btn btn-info" asp-action="Details" asp-route-id="@item.id" value="Detalles">
+                <input type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id" value="Eliminar">
+
+        
             </td>
         </tr>
 }
