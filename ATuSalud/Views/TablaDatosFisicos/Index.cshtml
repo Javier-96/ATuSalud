@@ -5,14 +5,14 @@
 }
 
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="btn btn-info">
+    <a asp-action="Create" style="color: white;">Añadir datos fisicos</a>
 </p>
-<table class="table table-striped">
+<table class="table table-striped text-center">
     <thead class="bg-info text-light">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PacienteId)
+                Paciente Id
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
@@ -27,7 +27,7 @@
                 @Html.DisplayNameFor(model => model.Alergias)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Grupo_sanguineo)
+                Grupo sanguineo
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Fumador)
@@ -67,9 +67,9 @@
                     @Html.DisplayFor(modelItem => item.Drogas)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar </a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar </a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
                 </td>
             </tr>
         }
