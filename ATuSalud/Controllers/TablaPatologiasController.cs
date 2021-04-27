@@ -54,7 +54,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Descripcion,TablaPacienteId,TablaCodigoCIAPId")] TablaPatologias tablaPatologias)
+        public async Task<IActionResult> Create([Bind("Id,Descripcion,Id_paciente,TablaCodigoCIAPId")] TablaPatologias tablaPatologias)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Descripcion,TablaPacienteId,TablaCodigoCIAPId")] TablaPatologias tablaPatologias)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Descripcion,Id_paciente,TablaCodigoCIAPId")] TablaPatologias tablaPatologias)
         {
             if (id != tablaPatologias.Id)
             {
