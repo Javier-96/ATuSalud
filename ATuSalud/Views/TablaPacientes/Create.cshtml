@@ -4,80 +4,82 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>TablaPaciente</h4>
+<h4>Añadir pacientes</h4>
 <hr />
 
 <form asp-action="Create">
     <div class="row">
-        <div class="col-md-4">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apellido1" class="control-label"></label>
-                <input asp-for="Apellido1" class="form-control" />
-                <span asp-validation-for="Apellido1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apellido2" class="control-label"></label>
-                <input asp-for="Apellido2" class="form-control" />
-                <span asp-validation-for="Apellido2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Fecha_de_nacimiento" class="control-label"></label>
-                <input asp-for="Fecha_de_nacimiento" class="form-control" />
-                <span asp-validation-for="Fecha_de_nacimiento" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Seguro_privado" /> @Html.DisplayNameFor(model => model.Seguro_privado)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="DNI" class="control-label"></label>
-                <input asp-for="DNI" class="form-control" />
-                <span asp-validation-for="DNI" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Direccion_postal" class="control-label"></label>
-                <input asp-for="Direccion_postal" class="form-control" />
-                <span asp-validation-for="Direccion_postal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="telefono_fijo" class="control-label"></label>
-                <input asp-for="telefono_fijo" class="form-control" />
-                <span asp-validation-for="telefono_fijo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="telefono_movil_1" class="control-label"></label>
-                <input asp-for="telefono_movil_1" class="form-control" />
-                <span asp-validation-for="telefono_movil_1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="telefono_movil_2" class="control-label"></label>
-                <input asp-for="telefono_movil_2" class="form-control" />
-                <span asp-validation-for="telefono_movil_2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sexo" class="control-label"></label>
-                <input asp-for="Sexo" class="form-control" />
-                <span asp-validation-for="Sexo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Nombre></label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Apellido 1</label>
+            <input asp-for="Apellido1" class="form-control" />
+            <span asp-validation-for="Apellido1" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Apellido 2</label>
+            <input asp-for="Apellido2" class="form-control" />
+            <span asp-validation-for="Apellido2" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Fecha de nacimiento</label>
+            <input asp-for="Fecha_de_nacimiento" class="form-control" />
+            <span asp-validation-for="Fecha_de_nacimiento" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>DNI</label>
+            <input asp-for="DNI" class="form-control" />
+            <span asp-validation-for="DNI" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Direccion postal</label>
+            <input asp-for="Direccion_postal" class="form-control" />
+            <span asp-validation-for="Direccion_postal" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Telefono fijo</label>
+            <input asp-for="telefono_fijo" class="form-control" />
+            <span asp-validation-for="telefono_fijo" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Telefono movil 1</label>
+            <input asp-for="telefono_movil_1" class="form-control" />
+            <span asp-validation-for="telefono_movil_1" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Telefono movil 2</label>
+            <input asp-for="telefono_movil_2" class="form-control" />
+            <span asp-validation-for="telefono_movil_2" class="text-danger"></span>
+        </div>
+        <div class="form-group col-xs-12 col-lg-4">
+            <label>Sexo</label>
+            <input asp-for="Sexo" class="form-control" />
+            <span asp-validation-for="Sexo" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <br />
+                <input class="form-check-input" asp-for="Seguro_privado" /> @Html.DisplayNameFor(model => model.Seguro_privado)
+            </label>
         </div>
     </div>
+    <div>
+        <div class="form-group">
+            <input type="submit" value="Crear" class="btn btn-primary" />
+        </div>
+    </div>
+
+
 </form>
 
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

@@ -4,7 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-
 <p class="btn btn-info">
     <a asp-action="Create" style="color: white;">Nueva Patologia</a>
 </p>
@@ -32,7 +31,7 @@
                     @Html.DisplayFor(modelItem => item.Descripcion)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TablaPacienteId)
+                    @Html.DisplayFor(modelItem => item.Id_paciente)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TablaCodigoCIAPId)

@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATuSalud", "ATuSalud\ATuSalud.csproj", "{4E457FBF-9477-4DAE-B1E9-69C64E697B9B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{748ED506-F91D-4F2D-B72C-7225A4EA82AF}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Users\Oceano\Desktop\BD_completa_SQL.sql = ..\..\..\Users\Oceano\Desktop\BD_completa_SQL.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
