@@ -9,7 +9,7 @@ namespace ATuSalud.Models
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public int TablaPacienteId { get; set; }
+        public int Id_paciente { get; set; }
         public int TablaCodigoCIAPId { get; set; }
     }
 }
