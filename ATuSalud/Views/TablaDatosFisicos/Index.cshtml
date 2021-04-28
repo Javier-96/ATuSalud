@@ -12,28 +12,16 @@
     <thead class="bg-info text-light">
         <tr>
             <th>
-                Paciente Id
+                Id del paciente
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Peso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Altura)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Alergias)
             </th>
             <th>
                 Grupo sanguineo
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fumador)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Drogas)
             </th>
             <th></th>
         </tr>
@@ -49,22 +37,10 @@
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Peso)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Altura)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Alergias)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Grupo_sanguineo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fumador)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Drogas)
                 </td>
                 <td>
                     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar </a> |

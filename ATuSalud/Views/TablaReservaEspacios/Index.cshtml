@@ -8,13 +8,11 @@
 <p class="btn btn-info">
     <a asp-action="Create" style="color: white;">Añadir reserva</a>
 </p>
-
-
 <table class="table table-striped">
     <thead class="bg-info text-light">
         <tr>
             <th>
-                ID del profesional
+                Id del profesional
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Espacio)
@@ -44,13 +42,9 @@
                 @Html.DisplayFor(modelItem => item.FechaFin)
             </td>
             <td>
-                <input type="button" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id" value="Editar">
-                <input type="button" class="btn btn-info" asp-action="Details" asp-route-id="@item.Id" value="Detalles">
-                <input type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id" value="Eliminar">
-
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }
