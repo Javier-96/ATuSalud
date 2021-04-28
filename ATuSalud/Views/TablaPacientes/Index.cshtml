@@ -7,7 +7,7 @@
 <p class="btn btn-info">
     <a asp-action="Create" style="color: white;">Añadir pacientes</a>
 </p>
-<table class="table table-striped">
+<table class="table table-striped text-center">
     <thead class="bg-info text-light">
         <tr>
             <th>
@@ -15,9 +15,6 @@
             </th>
             <th>
                 Primer Apellido
-            </th>
-            <th>
-                Segundo Apellido
             </th>
             <th>
                 Seguro Privado
@@ -39,18 +36,15 @@
                     @Html.DisplayFor(modelItem => item.Apellido1)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Apellido2)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Seguro_privado)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DNI)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
                 </td>
             </tr>
         }
