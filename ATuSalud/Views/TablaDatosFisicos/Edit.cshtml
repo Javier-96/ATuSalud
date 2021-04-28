@@ -41,19 +41,22 @@
             <input asp-for="Grupo_sanguineo" class="form-control" />
             <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
         </div>
-        <div class="form-group form-check">
+        <div class="form-group form-check col-12">
             <label class="form-check-label">
-                <input class="form-check-input" asp-for="Fumador" /> @Html.DisplayNameFor(model => model.Fumador)
+                @Html.DisplayNameFor(model => model.Fumador)
+                <input class="form-check-input col-3" asp-for="Fumador" />
             </label>
         </div>
-        <div class="form-group form-check">
+        <div class="form-group form-check col-12">
             <label class="form-check-label">
-                <input class="form-check-input" asp-for="Drogas" /> @Html.DisplayNameFor(model => model.Drogas)
+                @Html.DisplayNameFor(model => model.Drogas)
+                <input class="form-check-input col-3" asp-for="Drogas" />
             </label>
         </div>
-        <div class="form-group">
-            <input type="submit" value="Guardar" class="btn btn-primary" />
-        </div>
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
     </div>
 </form>
 

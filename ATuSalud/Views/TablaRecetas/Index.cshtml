@@ -5,7 +5,7 @@
 }
 
 <p class="btn btn-info">
-    <a asp-action="Create" style="color: white;">Nueva Receta</a>
+    <a asp-action="Create" style="color: white;">Añadir receta</a>
 </p>
 
 <table class="table table-striped">
@@ -16,12 +16,6 @@
             </th>
             <th>
                 Medicamento Generico
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dosis)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Duracion)
@@ -43,21 +37,15 @@
                     @Html.DisplayFor(modelItem => item.Medicamento_generico)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cantidad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dosis)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Duracion)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Fecha)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
                 </td>
             </tr>
         }
