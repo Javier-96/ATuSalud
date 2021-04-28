@@ -54,11 +54,22 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido1,Apellido2,Fecha_de_nacimiento,Seguro_privado,DNI,Direccion_postal,telefono_fijo,telefono_movil_1,telefono_movil_2,Sexo")] TablaPaciente tablaPaciente)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido1,Apellido2,Fecha_de_nacimiento,Seguro_privado,DNI,Direccion_postal,telefono_fijo,telefono_movil_1,telefono_movil_2,Sexo")] TablaPaciente tablaPaciente, int? IdProfesional)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(tablaPaciente);
+
+                if (IdProfesional != null)
+                {
+                    TablaProfesional_Paciente t = new TablaProfesional_Paciente();
+                    t.ProfesionalId = IdProfesional.Value;
+                    t.Paciente = tablaPaciente;
+                    _context.Add(t);
+                }
+
+              
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
