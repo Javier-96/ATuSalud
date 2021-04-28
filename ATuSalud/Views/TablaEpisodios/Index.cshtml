@@ -11,13 +11,7 @@
     <thead class="bg-info text-light">
         <tr>
             <th>
-                Paciente Id
-            </th>
-            <th>
-                Fecha inicio
-            </th>
-            <th>
-                Fecha final
+                Id del paciente
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Motivo)
@@ -36,12 +30,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.PacienteId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaFinal)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Motivo)

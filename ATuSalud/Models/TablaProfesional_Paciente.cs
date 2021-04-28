@@ -13,5 +13,6 @@ namespace ATuSalud.Models
         public int ProfesionalId { get; set; }
         [Column("Id_Paciente")]
         public int PacienteId { get; set; }
+        public TablaPaciente Paciente { get; set; }
     }
 }
