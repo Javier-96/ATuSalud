@@ -8,7 +8,7 @@ namespace ATuSalud.Models
     public class TablaCodigoCiap
     {
         public int Id { get; set; }
-        public int Codigo { get; set; }
+        public string Codigo { get; set; }
         public string Color { get; set; }
         public string Enfermedad { get; set; }
     }

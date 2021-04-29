@@ -18,7 +18,7 @@
                 @Html.DisplayNameFor(model => model.Familiar)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Enfermedad)
+                Id del CIAP
             </th>
             <th></th>
         </tr>
@@ -33,12 +33,12 @@
                 @Html.DisplayFor(modelItem => item.Familiar)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Enfermedad)
+                @Html.DisplayFor(modelItem => item.CodigoCiapId)
             </td>
             <td>
-                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id" >Editar</a> | 
-                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> | 
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id" >Eliminar</a>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }
