@@ -10,22 +10,22 @@ using ConexionSQL.Models;
 
 namespace ATuSalud.Controllers
 {
-    public class TablaAntecedentesController : Controller
+    public class TablaCodigoCiapsController : Controller
     {
         private readonly Contexto _context;
 
-        public TablaAntecedentesController(Contexto context)
+        public TablaCodigoCiapsController(Contexto context)
         {
             _context = context;
         }
 
-        // GET: TablaAntecedentes
+        // GET: TablaCodigoCiaps
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaAntecedentes.ToListAsync());
+            return View(await _context.TablaCodigoCiap.ToListAsync());
         }
 
-        // GET: TablaAntecedentes/Details/5
+        // GET: TablaCodigoCiaps/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,65 +33,62 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaAntecedentes = await _context.TablaAntecedentes
+            var tablaCodigoCiap = await _context.TablaCodigoCiap
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tablaAntecedentes == null)
+            if (tablaCodigoCiap == null)
             {
                 return NotFound();
             }
 
-            return View(tablaAntecedentes);
+            return View(tablaCodigoCiap);
         }
 
-        // GET: TablaAntecedentes/Create
+        // GET: TablaCodigoCiaps/Create
         public IActionResult Create()
         {
-            ViewData["Antecedentes"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
-            ViewData["Antecedentes1"] = new SelectList(_context.TablaCodigoCiap, "Id", "Enfermedad");
             return View();
         }
 
-        // POST: TablaAntecedentes/Create
+        // POST: TablaCodigoCiaps/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( TablaAntecedentes tablaAntecedentes)
+        public async Task<IActionResult> Create([Bind("Id,Codigo,Color,Enfermedad")] TablaCodigoCiap tablaCodigoCiap)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tablaAntecedentes);
+                _context.Add(tablaCodigoCiap);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tablaAntecedentes);
+            return View(tablaCodigoCiap);
         }
 
-        // GET: TablaAntecedentes/Edit/5
+        // GET: TablaCodigoCiaps/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            var tablaAntecedentes = await _context.TablaAntecedentes.FindAsync(id);
-            if (tablaAntecedentes == null)
+
+            var tablaCodigoCiap = await _context.TablaCodigoCiap.FindAsync(id);
+            if (tablaCodigoCiap == null)
             {
                 return NotFound();
             }
-            ViewData["Antecedentes"] = new SelectList(_context.TablaPaciente, "Id", "Nombre",tablaAntecedentes.PacienteId);
-            ViewData["Antecedentes1"] = new SelectList(_context.TablaCodigoCiap, "Id", "Enfermedad", tablaAntecedentes.CodigoCiapId);
-            return View(tablaAntecedentes);
+            return View(tablaCodigoCiap);
         }
 
-        // POST: TablaAntecedentes/Edit/5
+        // POST: TablaCodigoCiaps/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, TablaAntecedentes tablaAntecedentes)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Codigo,Color,Enfermedad")] TablaCodigoCiap tablaCodigoCiap)
         {
-            if (id != tablaAntecedentes.Id)
+            if (id != tablaCodigoCiap.Id)
             {
                 return NotFound();
             }
@@ -100,12 +97,12 @@ namespace ATuSalud.Controllers
             {
                 try
                 {
-                    _context.Update(tablaAntecedentes);
+                    _context.Update(tablaCodigoCiap);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TablaAntecedentesExists(tablaAntecedentes.Id))
+                    if (!TablaCodigoCiapExists(tablaCodigoCiap.Id))
                     {
                         return NotFound();
                     }
@@ -116,10 +113,10 @@ namespace ATuSalud.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tablaAntecedentes);
+            return View(tablaCodigoCiap);
         }
 
-        // GET: TablaAntecedentes/Delete/5
+        // GET: TablaCodigoCiaps/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -127,30 +124,30 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaAntecedentes = await _context.TablaAntecedentes
+            var tablaCodigoCiap = await _context.TablaCodigoCiap
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tablaAntecedentes == null)
+            if (tablaCodigoCiap == null)
             {
                 return NotFound();
             }
 
-            return View(tablaAntecedentes);
+            return View(tablaCodigoCiap);
         }
 
-        // POST: TablaAntecedentes/Delete/5
+        // POST: TablaCodigoCiaps/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var tablaAntecedentes = await _context.TablaAntecedentes.FindAsync(id);
-            _context.TablaAntecedentes.Remove(tablaAntecedentes);
+            var tablaCodigoCiap = await _context.TablaCodigoCiap.FindAsync(id);
+            _context.TablaCodigoCiap.Remove(tablaCodigoCiap);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TablaAntecedentesExists(int id)
+        private bool TablaCodigoCiapExists(int id)
         {
-            return _context.TablaAntecedentes.Any(e => e.Id == id);
+            return _context.TablaCodigoCiap.Any(e => e.Id == id);
         }
     }
 }
