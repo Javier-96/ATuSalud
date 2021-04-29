@@ -26,6 +26,8 @@ namespace ATuSalud.Models
 		public bool Fumador { get; set; }
 
 		public bool Drogas { get; set; }
+
+		public string Hola { get; set; }
 	}
 
 }

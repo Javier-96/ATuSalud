@@ -11,9 +11,11 @@ namespace ATuSalud.Models
         public int Id { get; set; }
 
         [Column("Id_Paciente")]
-        public int PacienteId { get; set; }
+        public int? PacienteId { get; set; }
         public TablaPaciente Paciente { get; set; }
         public string Familiar { get; set; }
-        public string Enfermedad { get; set; }
+        [Column("id_ciap")]
+        public int? CodigoCiapId { get; set; }
+        public TablaCodigoCiap CodigoCiap { get; set; }
     }
 }
