@@ -33,7 +33,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaRecetas = await _context.TablaRecetas
+            var tablaRecetas = await _context.TablaRecetas.Include(x=>x.Paciente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaRecetas == null)
             {
@@ -46,6 +46,7 @@ namespace ATuSalud.Controllers
         // GET: TablaRecetas/Create
         public IActionResult Create()
         {
+            ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
             return View();
         }
 
@@ -54,7 +55,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Diagnostico,Medicamento_generico,Cantidad,Dosis,Duracion,Fecha")] TablaRecetas tablaRecetas)
+        public async Task<IActionResult> Create(TablaRecetas tablaRecetas)
         {
             if (ModelState.IsValid)
             {
@@ -78,6 +79,8 @@ namespace ATuSalud.Controllers
             {
                 return NotFound();
             }
+            ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre", tablaRecetas.PacienteID);
+            
             return View(tablaRecetas);
         }
 
