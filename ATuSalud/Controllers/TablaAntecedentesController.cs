@@ -47,6 +47,7 @@ namespace ATuSalud.Controllers
         public IActionResult Create()
         {
             ViewData["Antecedentes"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
+            ViewData["Antecedentes1"] = new SelectList(_context.TablaCodigoCiap, "Id", "Enfermedad");
             return View();
         }
 
@@ -79,6 +80,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
             ViewData["Antecedentes"] = new SelectList(_context.TablaPaciente, "Id", "Nombre",tablaAntecedentes.PacienteId);
+            ViewData["Antecedentes1"] = new SelectList(_context.TablaCodigoCiap, "Id", "Enfermedad", tablaAntecedentes.CodigoCiapId);
             return View(tablaAntecedentes);
         }
 

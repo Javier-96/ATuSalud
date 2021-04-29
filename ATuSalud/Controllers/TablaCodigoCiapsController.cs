@@ -10,22 +10,22 @@ using ConexionSQL.Models;
 
 namespace ATuSalud.Controllers
 {
-    public class TablaDatosFisicosController : Controller
+    public class TablaCodigoCiapsController : Controller
     {
         private readonly Contexto _context;
 
-        public TablaDatosFisicosController(Contexto context)
+        public TablaCodigoCiapsController(Contexto context)
         {
             _context = context;
         }
 
-        // GET: TablaDatosFisicos
+        // GET: TablaCodigoCiaps
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaDatosFisicos.ToListAsync());
+            return View(await _context.TablaCodigoCiap.ToListAsync());
         }
 
-        // GET: TablaDatosFisicos/Details/5
+        // GET: TablaCodigoCiaps/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaDatosFisicos = await _context.TablaDatosFisicos
+            var tablaCodigoCiap = await _context.TablaCodigoCiap
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tablaDatosFisicos == null)
+            if (tablaCodigoCiap == null)
             {
                 return NotFound();
             }
 
-            return View(tablaDatosFisicos);
+            return View(tablaCodigoCiap);
         }
 
-        // GET: TablaDatosFisicos/Create
+        // GET: TablaCodigoCiaps/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: TablaDatosFisicos/Create
+        // POST: TablaCodigoCiaps/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PacienteId,Nombre,Peso,Altura,Alergias,Grupo_sanguineo,Fumador,Drogas")] TablaDatosFisicos tablaDatosFisicos)
+        public async Task<IActionResult> Create([Bind("Id,Codigo,Color,Enfermedad")] TablaCodigoCiap tablaCodigoCiap)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tablaDatosFisicos);
+                _context.Add(tablaCodigoCiap);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tablaDatosFisicos);
+            return View(tablaCodigoCiap);
         }
 
-        // GET: TablaDatosFisicos/Edit/5
+        // GET: TablaCodigoCiaps/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaDatosFisicos = await _context.TablaDatosFisicos.FindAsync(id);
-            if (tablaDatosFisicos == null)
+            var tablaCodigoCiap = await _context.TablaCodigoCiap.FindAsync(id);
+            if (tablaCodigoCiap == null)
             {
                 return NotFound();
             }
-            return View(tablaDatosFisicos);
+            return View(tablaCodigoCiap);
         }
 
-        // POST: TablaDatosFisicos/Edit/5
+        // POST: TablaCodigoCiaps/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PacienteId,Nombre,Peso,Altura,Alergias,Grupo_sanguineo,Fumador,Drogas")] TablaDatosFisicos tablaDatosFisicos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Codigo,Color,Enfermedad")] TablaCodigoCiap tablaCodigoCiap)
         {
-            if (id != tablaDatosFisicos.Id)
+            if (id != tablaCodigoCiap.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace ATuSalud.Controllers
             {
                 try
                 {
-                    _context.Update(tablaDatosFisicos);
+                    _context.Update(tablaCodigoCiap);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TablaDatosFisicosExists(tablaDatosFisicos.Id))
+                    if (!TablaCodigoCiapExists(tablaCodigoCiap.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace ATuSalud.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tablaDatosFisicos);
+            return View(tablaCodigoCiap);
         }
 
-        // GET: TablaDatosFisicos/Delete/5
+        // GET: TablaCodigoCiaps/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,41 +124,30 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaDatosFisicos = await _context.TablaDatosFisicos
+            var tablaCodigoCiap = await _context.TablaCodigoCiap
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tablaDatosFisicos == null)
+            if (tablaCodigoCiap == null)
             {
                 return NotFound();
             }
 
-            return View(tablaDatosFisicos);
+            return View(tablaCodigoCiap);
         }
 
-        // POST: TablaDatosFisicos/Delete/5
+        // POST: TablaCodigoCiaps/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var tablaDatosFisicos = await _context.TablaDatosFisicos.FindAsync(id);
-            _context.TablaDatosFisicos.Remove(tablaDatosFisicos);
+            var tablaCodigoCiap = await _context.TablaCodigoCiap.FindAsync(id);
+            _context.TablaCodigoCiap.Remove(tablaCodigoCiap);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TablaDatosFisicosExists(int id)
+        private bool TablaCodigoCiapExists(int id)
         {
-            return _context.TablaDatosFisicos.Any(e => e.Id == id);
-        }
-
-        public IActionResult Ficha(int? id)
-        {
-            //
-            var tablaDatosFisicos = _context.TablaDatosFisicos.Find(id);
-            //Aqui hacemos un desplegable con todos los pacientes, le pasamos el
-            //_context.TablaPaciente pero no con el Find, por eso aparecen todos en el desplegable.
-            //Pasar el id es obligatorio pasarlo.
-            ViewBag.Pacientes = new SelectList(_context.TablaPaciente, "Id", "Nombre", id);
-            return View(tablaDatosFisicos);
+            return _context.TablaCodigoCiap.Any(e => e.Id == id);
         }
     }
 }

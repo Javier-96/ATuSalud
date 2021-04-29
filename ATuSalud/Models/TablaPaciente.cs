@@ -11,7 +11,7 @@ namespace ATuSalud.Models
         public string Nombre { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }
-        public DateTime Fecha_de_nacimiento { get; set; }
+        public DateTime? Fecha_de_nacimiento { get; set; }
         public bool? Seguro_privado { get; set; }
         public string DNI { get; set; }
         public string Direccion_postal { get; set; }
