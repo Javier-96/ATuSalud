@@ -149,5 +149,16 @@ namespace ATuSalud.Controllers
         {
             return _context.TablaDatosFisicos.Any(e => e.Id == id);
         }
+
+        public IActionResult Ficha(int? id)
+        {
+            //
+            var tablaDatosFisicos = _context.TablaDatosFisicos.Find(id);
+            //Aqui hacemos un desplegable con todos los pacientes, le pasamos el
+            //_context.TablaPaciente pero no con el Find, por eso aparecen todos en el desplegable.
+            //Pasar el id es obligatorio pasarlo.
+            ViewBag.Pacientes = new SelectList(_context.TablaPaciente, "Id", "Nombre", id);
+            return View(tablaDatosFisicos);
+        }
     }
 }

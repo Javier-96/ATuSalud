@@ -1,0 +1,20 @@
+﻿@model ATuSalud.Models.TablaDatosFisicos
+@{
+    ViewData["Title"] = "Ficha";
+}
+
+<h1>Ficha</h1>
+
+<form asp-action="Ficha" method="get">
+    <select name="id" class="form-control" asp-items="ViewBag.Pacientes"></select>
+    <input name="lller"/>
+    <button type="submit">Consultar</button>
+</form>
+
+@if (Model != null)
+{
+    <span>Altura:</span>
+    @Model.Altura
+}
+
+
