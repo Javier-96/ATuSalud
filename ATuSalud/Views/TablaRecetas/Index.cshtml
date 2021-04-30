@@ -12,13 +12,13 @@
     <thead class="bg-info text-light">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Diagnostico)
+                Nombre del Paciente
             </th>
             <th>
-                Medicamento Generico
+                Diagnóstico
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Duracion)
+                Medicamento
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Fecha)
@@ -31,13 +31,14 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Paciente.Nombre)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Diagnostico)
+                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Medicamento_generico)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Duracion)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Fecha)

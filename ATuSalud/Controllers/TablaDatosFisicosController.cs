@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaDatosFisicos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaDatosFisicos.ToListAsync());
+            return View(await _context.TablaDatosFisicos.Include(x => x.Paciente).ToListAsync());
         }
 
         // GET: TablaDatosFisicos/Details/5
@@ -33,7 +33,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaDatosFisicos = await _context.TablaDatosFisicos
+            var tablaDatosFisicos = await _context.TablaDatosFisicos.Include(x=>x.Paciente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaDatosFisicos == null)
             {
@@ -46,6 +46,7 @@ namespace ATuSalud.Controllers
         // GET: TablaDatosFisicos/Create
         public IActionResult Create()
         {
+            ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
             return View();
         }
 
@@ -78,6 +79,7 @@ namespace ATuSalud.Controllers
             {
                 return NotFound();
             }
+            ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre", tablaDatosFisicos.PacienteId);
             return View(tablaDatosFisicos);
         }
 
@@ -135,7 +137,7 @@ namespace ATuSalud.Controllers
         }
 
         // POST: TablaDatosFisicos/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")] 
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -148,6 +150,17 @@ namespace ATuSalud.Controllers
         private bool TablaDatosFisicosExists(int id)
         {
             return _context.TablaDatosFisicos.Any(e => e.Id == id);
+        }
+
+        public IActionResult Ficha(int? id)
+        {
+            //
+            var tablaDatosFisicos = _context.TablaDatosFisicos.Find(id);
+            //Aqui hacemos un desplegable con todos los pacientes, le pasamos el
+            //_context.TablaPaciente pero no con el Find, por eso aparecen todos en el desplegable.
+            //Pasar el id es obligatorio pasarlo.
+            ViewBag.Pacientes = new SelectList(_context.TablaPaciente, "Id", "Nombre", id);
+            return View(tablaDatosFisicos);
         }
     }
 }

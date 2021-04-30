@@ -11,8 +11,8 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <div class="form-group col-lg-4 col-12">
-            <label> Id Paciente</label>
-            <input asp-for="PacienteId" class="form-control" />
+            <label>Nombre del paciente</label>
+            <select asp-for="PacienteId" class="form-control" asp-items="ViewBag.PacienteID"></select>
             <span asp-validation-for="PacienteId" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-4 col-12">

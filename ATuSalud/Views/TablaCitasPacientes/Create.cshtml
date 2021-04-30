@@ -11,17 +11,17 @@
     <div class="row">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label asp-for="TablaPacienteId" class="control-label"></label>
-            <input asp-for="TablaPacienteId" class="form-control" />
+            <label>Paciente</label>
+            <select asp-for="TablaPacienteId" class="form-control" asp-items="ViewBag.Paciente"></select>
             <span asp-validation-for="TablaPacienteId" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label asp-for="TablaProfesionalId" class="control-label"></label>
-            <input asp-for="TablaProfesionalId" class="form-control" />
+            <label>Profesional</label>
+            <select asp-for="TablaProfesionalId" class="form-control" asp-items="ViewBag.Profesional"></select>
             <span asp-validation-for="TablaProfesionalId" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label asp-for="Fecha_atencion" class="control-label"></label>
+            <label>Fecha atención</label>
             <input asp-for="Fecha_atencion" class="form-control" />
             <span asp-validation-for="Fecha_atencion" class="text-danger"></span>
         </div>

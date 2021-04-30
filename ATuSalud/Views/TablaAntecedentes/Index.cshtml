@@ -12,13 +12,13 @@
     <thead class="bg-info text-light">
         <tr>
             <th>
-                Id del Paciente
+                Paciente
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Familiar)
             </th>
             <th>
-                Id del CIAP
+                Código CIAP
             </th>
             <th></th>
         </tr>
@@ -27,13 +27,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PacienteId)
+                @Html.DisplayFor(modelItem => item.Paciente.Nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Familiar)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodigoCiapId)
+                @Html.DisplayFor(modelItem => item.CodigoCiap.Enfermedad)
             </td>
             <td>
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |

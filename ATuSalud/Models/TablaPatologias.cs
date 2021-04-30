@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,14 @@ namespace ATuSalud.Models
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public int Id_paciente { get; set; }
-        public int TablaCodigoCIAPId { get; set; }
+
+        [Column("Id_Paciente")]
+        public int? PacienteID { get; set; }
+        public TablaPaciente Paciente { get; set; }
+
+
+        public int? TablaCodigoCIAPId  { get; set; }
+        public TablaCodigoCiap TablaCodigoCIAP { get; set; }
+
     }
 }

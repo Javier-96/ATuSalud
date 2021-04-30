@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,7 +14,11 @@ namespace ATuSalud.Models
         public string Cantidad { get; set; }
         public string Dosis { get; set; }
         public string Duracion { get; set; }
-        public DateTime Fecha { get; set; }
+        public DateTime? Fecha { get; set; }
+
+        [Column("Id_Paciente")]
+        public int? PacienteID { get; set; }
+        public TablaPaciente Paciente { get; set; }
 
     }
 }

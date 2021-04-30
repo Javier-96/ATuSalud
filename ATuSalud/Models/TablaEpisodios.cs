@@ -12,7 +12,7 @@ namespace ATuSalud.Models
 
         [Column("Id_Paciente")]
         public int PacienteId { get; set; }
-
+        public TablaPaciente Paciente { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFinal { get; set; }
         public string Motivo { get; set; }

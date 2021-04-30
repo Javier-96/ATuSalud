@@ -9,10 +9,14 @@ namespace ATuSalud.Models
     public class TablaCitasPaciente
     {
 		public int Id { get; set; }
-		[Column("Id_Paciente")]
-		public int TablaPacienteId { get; set; }
-		[Column("Id_Profesional")]
-		public int TablaProfesionalId { get; set; }
+
+		[Column("Id_paciente")]
+		public int? TablaPacienteId { get; set; }
+		public TablaPaciente TablaPaciente { get; set; }
+		
+		[Column("Id_profesional")]
+		public int? TablaProfesionalId { get; set; }
+		public TablaProfesional TablaProfesional { get; set; }
 		public DateTime	Fecha_atencion{ get; set; }
 		public DateTime Fecha_acabar { get; set; }
 		public string Observaciones { get; set; }

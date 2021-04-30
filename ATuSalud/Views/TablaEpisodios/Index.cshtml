@@ -11,7 +11,7 @@
     <thead class="bg-info text-light">
         <tr>
             <th>
-                Id del paciente
+                Nombre del paciente
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Motivo)
@@ -29,7 +29,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PacienteId)
+                @Html.DisplayFor(modelItem => item.Paciente.Nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Motivo)

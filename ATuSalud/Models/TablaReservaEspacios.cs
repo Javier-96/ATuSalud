@@ -12,6 +12,7 @@ namespace ATuSalud.Models
         [Column("Id_Profesional")]
         public int? ProfesionalId { get; set; }
         public TablaProfesional Profesional { get; set; }
+
         public string Espacio { get; set; }
         public DateTime? FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }

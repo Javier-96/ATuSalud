@@ -11,15 +11,10 @@
     <div class="row">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
-        <div class="form-group col-xs-12 col-lg-4">
-            <label>Id del paciente</label>
-            <input asp-for="PacienteId" class="form-control" />
+        <div class="form-group col-lg-4 col-12">
+            <label>ID del paciente</label>
+            <select asp-for="PacienteId" class="form-control" asp-items="ViewBag.PacienteID"></select>
             <span asp-validation-for="PacienteId" class="text-danger"></span>
-        </div>
-        <div class="form-group col-xs-12 col-lg-4">
-            <label>Nombre</label>
-            <input asp-for="Nombre" class="form-control" />
-            <span asp-validation-for="Nombre" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
             <label>Peso</label>

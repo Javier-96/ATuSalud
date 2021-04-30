@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaEpisodios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaEpisodios.ToListAsync());
+            return View(await _context.TablaEpisodios.Include(x => x.Paciente).ToListAsync());
         }
 
         // GET: TablaEpisodios/Details/5
@@ -33,7 +33,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaEpisodios = await _context.TablaEpisodios
+            var tablaEpisodios = await _context.TablaEpisodios.Include(x => x.Paciente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaEpisodios == null)
             {
@@ -46,6 +46,7 @@ namespace ATuSalud.Controllers
         // GET: TablaEpisodios/Create
         public IActionResult Create()
         {
+            ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
             return View();
         }
 
@@ -78,6 +79,7 @@ namespace ATuSalud.Controllers
             {
                 return NotFound();
             }
+            ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre", tablaEpisodios.PacienteId);
             return View(tablaEpisodios);
         }
 
@@ -124,7 +126,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaEpisodios = await _context.TablaEpisodios
+            var tablaEpisodios = await _context.TablaEpisodios.Include(x => x.Paciente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaEpisodios == null)
             {

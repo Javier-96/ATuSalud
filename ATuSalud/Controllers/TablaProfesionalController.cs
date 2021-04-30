@@ -96,7 +96,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,nombre,apellido1,apellido2,especialidad,num_colegiado,foto")] TablaProfesional tablaProfesional)
+        public async Task<IActionResult> Edit(int id, [Bind("id,nombre,apellido1,apellido2,especialidad,num_colegiado,foto")] TablaProfesional tablaProfesional, IFormFile fichero)
         {
             if (id != tablaProfesional.id)
             {
@@ -107,6 +107,14 @@ namespace ATuSalud.Controllers
             {
                 try
                 {
+                    if (fichero != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            fichero.CopyTo(ms);
+                            tablaProfesional.foto = ms.ToArray();
+                        }
+                    }
                     _context.Update(tablaProfesional);
                     await _context.SaveChangesAsync();
                 }

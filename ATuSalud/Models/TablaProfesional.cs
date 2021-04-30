@@ -12,7 +12,7 @@ namespace ATuSalud.Models
         public string apellido1 { get; set; }
         public string apellido2 { get; set; }
         public string especialidad { get; set; }
-        public int num_colegiado { get; set; }
+        public int? num_colegiado { get; set; }
         public byte[] foto { get; set; }
 
 

@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaAntecedentes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaAntecedentes.ToListAsync());
+            return View(await _context.TablaAntecedentes.Include(x=>x.CodigoCiap).Include(x => x.Paciente).ToListAsync());
         }
 
         // GET: TablaAntecedentes/Details/5
@@ -33,7 +33,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaAntecedentes = await _context.TablaAntecedentes
+            var tablaAntecedentes = await _context.TablaAntecedentes.Include(x=>x.CodigoCiap).Include(x=>x.Paciente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaAntecedentes == null)
             {
@@ -127,7 +127,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaAntecedentes = await _context.TablaAntecedentes
+            var tablaAntecedentes = await _context.TablaAntecedentes.Include(x => x.Paciente).Include(x=>x.CodigoCiap)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaAntecedentes == null)
             {

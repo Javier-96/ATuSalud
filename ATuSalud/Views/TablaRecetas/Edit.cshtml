@@ -42,6 +42,11 @@
             <input asp-for="Fecha" class="form-control" />
             <span asp-validation-for="Fecha" class="text-danger"></span>
         </div>
+        <div class="form-group col-lg-4 col-12">
+            <label>Nombre del paciente</label>
+            <select asp-for="PacienteID" class="form-control" asp-items="ViewBag.PacienteID"></select>
+            <span asp-validation-for="PacienteID" class="text-danger"></span>
+        </div>
         <div class="form-group col-12 col-md-3">
             <input type="submit" value="Guardar" class="btn btn-primary" />
         </div>
