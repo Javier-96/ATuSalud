@@ -1,0 +1,32 @@
+Recetas esta conectado foraneamente a pacientes.
+Queremos que Id de la reserva salgan los pacientes en modo Lista.
+Ir a model de recetas.
+En la base de datos se llama Id_paciente. Queremos que en visual se llame 
+PacienteID. Usamos column
+La TablePaciente Paciente {get;set;} se usa para la clave foranea.
+Esto lo que hace es crearme un objeto de la tabla paciente
+El interrogante es para que acepte NULL.
+
+
+Vamos al controlador de recetas.
+
+Queremos modificar el create. Vamos al get del create y añadimos la linea
+ViewData["PacienteID"] = new SelectList(_contecct-TablaPaciente,"Id","Nombre")
+SIgnifica que los busca por ID pero pone el nombre. Linea 50 de controller.
+
+Vamos al create view de tabla recetas y le decimos que nos lo muestre.
+Linea 17.
+<select asp-for=
+
+
+EDIT
+
+Ir a controller del edit de recetas y metemos ViewData[] en linea 83 pero añadimos el nuevo campo tablaRecetas.PacienteID que es la clave foranea y asi
+logramos que se vea el campo nombre ya puesto.
+En la view Edit metemos lo mismo.
+
+En el details metemos (linea 37) var tablaRecetas =await_ccontect.TablaRecetas.Include(x=>x.Paciente)
+En la view Details hacemos referencia a eso con linea 53 metemos '.Nombre'
+
+Para el Index Linea 25
+

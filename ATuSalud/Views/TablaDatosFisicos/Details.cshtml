@@ -16,10 +16,10 @@
             @Html.DisplayFor(model => model.PacienteId)
         </dd>
         <dt class="col-sm-2">
-            Nombre:
+            Nombre de paciente
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
+            @Html.DisplayFor(model => model.Paciente.Nombre)
         </dd>
         <dt class="col-sm-2">
             Peso:
@@ -40,7 +40,7 @@
             @Html.DisplayFor(model => model.Alergias)
         </dd>
         <dt class="col-sm-2">
-            Grupo sanguineo: 
+            Grupo sanguineo:
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Grupo_sanguineo)
@@ -57,6 +57,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Drogas)
         </dd>
+
     </dl>
 </div>
 <div>
