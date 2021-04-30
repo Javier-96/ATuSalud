@@ -20,9 +20,10 @@ namespace ATuSalud.Controllers
         }
 
         // GET: TablaRecetas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            return View(await _context.TablaRecetas.ToListAsync());
+            return View(await _context.TablaRecetas.Include(x=>x.Paciente).ToListAsync());
+            
         }
 
         // GET: TablaRecetas/Details/5
@@ -127,7 +128,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaRecetas = await _context.TablaRecetas
+            var tablaRecetas = await _context.TablaRecetas.Include(x => x.Paciente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaRecetas == null)
             {
