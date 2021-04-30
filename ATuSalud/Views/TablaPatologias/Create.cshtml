@@ -18,13 +18,11 @@
             </div>
             <div class="form-group col-lg-4 col-12">
                 <label>Paciente</label>
-                <input asp-for="Id_paciente" class="form-control" />
-                <span asp-validation-for="Id_paciente" class="text-danger"></span>
+                <select asp-for="PacienteID" class="form-control" asp-items="ViewBag.PacienteID"></select>
             </div>
             <div class="form-group col-lg-4 col-12">
                 <label>Codigo CIAP</label>
-                <input asp-for="TablaCodigoCIAPId" class="form-control" />
-                <span asp-validation-for="TablaCodigoCIAPId" class="text-danger"></span>
+                <select asp-for="TablaCodigoCIAP" class="form-control" asp-items="ViewBag.TablaCodigoCIAPId"></select>
             </div>
             <div class="form-group col-12 col-md-3">
                 <input type="submit" value="Añadir" class="btn btn-primary" />

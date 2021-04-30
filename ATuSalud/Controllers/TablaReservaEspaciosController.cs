@@ -22,8 +22,8 @@ namespace ATuSalud.Controllers
         // GET: TablaReservaEspacios1
         public async Task<IActionResult> Index()
         {
-            var contexto = _context.TablaReservaEspacios.Include(t => t.Profesional);
-            return View(await contexto.ToListAsync());
+            return View(await _context.TablaReservaEspacios.Include("Profesional").ToListAsync());
+           
         }
 
         // GET: TablaReservaEspacios1/Details/5
