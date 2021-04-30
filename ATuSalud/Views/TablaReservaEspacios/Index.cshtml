@@ -12,7 +12,7 @@
     <thead class="bg-info text-light">
         <tr>
             <th>
-                Id del profesional
+                Nombre del profesional
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Espacio)
@@ -30,7 +30,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProfesionalId)
+                @Html.DisplayFor(modelItem => item.Profesional.nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Espacio)

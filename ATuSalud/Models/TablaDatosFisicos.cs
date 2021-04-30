@@ -11,9 +11,11 @@ namespace ATuSalud.Models
     {		
 		public int Id { get; set; }
 		
-		[Column("Id_Paciente")]
-		public int PacienteId { get; set; }
 		public string Nombre { get; set; }
+
+		[Column("Id_Paciente")]
+		public int? PacienteId { get; set; }
+		public TablaPaciente Paciente { get; set; }
 
 		public int Peso { get; set; }
 
@@ -28,6 +30,8 @@ namespace ATuSalud.Models
 		public bool Drogas { get; set; }
 
 		public string Hola { get; set; }
+
+
 	}
 
 }

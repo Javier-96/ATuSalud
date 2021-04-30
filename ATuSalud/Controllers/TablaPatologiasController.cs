@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaPatologias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaPatologias.ToListAsync());
+            return View(await _context.TablaPatologias.Include("Paciente").Include("TablaCodigoCIAP").ToListAsync());
         }
 
         // GET: TablaPatologias/Details/5
@@ -46,6 +46,10 @@ namespace ATuSalud.Controllers
         // GET: TablaPatologias/Create
         public IActionResult Create()
         {
+            ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
+           
+
+            ViewData["TablaCodigoCIAPId"] = new SelectList(_context.TablaCodigoCiap, "Id", "Codigo");
             return View();
         }
 
