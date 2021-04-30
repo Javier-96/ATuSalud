@@ -9,6 +9,9 @@ namespace ATuSalud.Models
     public class TablaRecetas
     {
         public int Id { get; set; }
+        [Column("Id_Paciente")]
+        public int? MedicamentoID { get; set; }
+        public TablaMedicamentos Medicamento { get; set; }
         public string Diagnostico { get; set; }
         public string Medicamento_generico { get; set; }
         public string Cantidad { get; set; }
