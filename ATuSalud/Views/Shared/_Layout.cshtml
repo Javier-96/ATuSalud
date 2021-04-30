@@ -8,24 +8,52 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
+    <style>
+        .map-container-section {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+
+            .map-container-section iframe {
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+            }
+    </style>
 </head>
 <body>
     <!--Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-secondary text-light">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Iniciar sesion</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Lora', serif;">Iniciar sesion</h5>
+                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="container">
+                        <div class="row">
+                            <div style="font-family: 'Lora', serif;">Usuario</div>
+                            <input class="col-12" type="text" style="border-radius: 15px;" />
+                        </div>
+                        <div class="row">
+                            <div style="font-family: 'Lora', serif;">Contraseña</div>
+                            <input class="col-12" type="password" style="border-radius: 15px;" />
+                        </div>
+                        <br />
+                        <p class="text-center" style="font-family: 'Lora', serif;">¿No tienes una cuenta? <a asp-controller="home" asp-action="registro" style="color:black;">Registrate</a> </p>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar</button>
+                    <button type="button" class="btn btn-dark">Enviar</button>
                 </div>
             </div>
         </div>
@@ -39,45 +67,47 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" style="margin-top: 5px;">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Administracion
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-controller="TablaAntecedentes" asp-action="index">Antecedentes</a>
+                            <a class="dropdown-item" asp-controller="TablaAntecedentes" asp-action="index">Tabla de antecedentes</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaCitasPacientes" asp-action="index">Citas Pacientes</a>
+                            <a class="dropdown-item" asp-controller="TablaCitasPacientes" asp-action="index">Tablade citas-pacientes</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaDatosFisicos" asp-action="index">Datos Fisicos</a>
+                            <a class="dropdown-item" asp-controller="TablaCitasPacientes" asp-action="index">Tablade codigos CIAP</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaEpisodios" asp-action="index">Episodios</a>
+                            <a class="dropdown-item" asp-controller="TablaDatosFisicos" asp-action="index">Tabla de datos fisicos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaEspacios" asp-action="index">Espacios</a>
+                            <a class="dropdown-item" asp-controller="TablaEpisodios" asp-action="index">Tabla de episodios</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaMedicamentos" asp-action="index">Medicamentos</a>
+                            <a class="dropdown-item" asp-controller="TablaEspacios" asp-action="index">Tabla de espacios</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaPacientes" asp-action="index">Pacientes</a>
+                            <a class="dropdown-item" asp-controller="TablaMedicamentos" asp-action="index">Tabla de medicamentos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaPatologias" asp-action="index">Patologias</a>
+                            <a class="dropdown-item" asp-controller="TablaPacientes" asp-action="index">Tabla de pacientes</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaProfesional" asp-action="index">Profesional</a>
+                            <a class="dropdown-item" asp-controller="TablaPatologias" asp-action="index">Tabla de patologias</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaProfesional_Paciente" asp-action="index">Profesional Paciente</a>
+                            <a class="dropdown-item" asp-controller="TablaProfesional" asp-action="index">Tabla de profesionales</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaRecetas" asp-action="index">Recetas</a>
+                            <a class="dropdown-item" asp-controller="TablaProfesional_Paciente" asp-action="index">Tabla de profesional-paciente</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="TablaReservaEspacios" asp-action="index">Reserva de Espacios</a>
+                            <a class="dropdown-item" asp-controller="TablaRecetas" asp-action="index">Tabla de recetas</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="TablaReservaEspacios" asp-action="index">Tabla de reserva-espacios</a>
                         </div>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active" style="margin-top: 5px;">
                         <a class="nav-link" asp-controller="home" asp-action="contacto">Contacto</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item">
-                        <a class="btn btn-secondary" asp-controller="home" asp-action="contacto">Registrarse</a>
+                    <li class="nav-item" style="margin-right:15px; margin-top:5px;">
+                        <a class="btn btn-secondary" asp-controller="home" asp-action="registro">Registrarse</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin-right:15px; margin-top:5px;">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Iniciar sesion
                         </button>
@@ -92,7 +122,7 @@
     </main>
     <footer class="border-top footer text-muted">
         <div class="row" style="background-color: #81BFFE; text-align: center;">
-            <div class="col-md-4 col-xs-12">
+            <div class="col-lg-4 col-xs-12">
                 <br />
                 <h2><strong>Contáctanos</strong></h2>
                 <ul style="text-align:justify center; padding:30px; list-style:none;">
@@ -101,7 +131,7 @@
                     <li><strong>Email:</strong> <a href="mailto:info@atusalud.com">info@atusalud.com</a></li>
                 </ul>
             </div>
-            <div class="col-md-4 col-xs-12">
+            <div class="col-lg-4 col-xs-12">
                 <br />
                 <h2><strong>Visita nuestra clínica</strong></h2>
                 <ul style="text-align:justify center; padding:30px; list-style:none;">
@@ -109,9 +139,10 @@
                     <li><a>50006 Zaragoza</a></li>
                 </ul>
             </div>
-            <div class="col-md-4 col-xs-12">
+            <div class="col-lg-4 col-xs-12">
                 <br />
-                <img src="/img/logo.png" width="50%" />
+                <img src="/img/logo.png" width="50%" /><br /><br />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.3456570895773!2d-0.9049408848488676!3d41.66987777923926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd59148c3bd689b7%3A0x3ea25502c941248b!2sOc%C3%A9ano%20Atl%C3%A1ntico%3A%20Formaci%C3%B3n%20Profesional!5e0!3m2!1ses!2ses!4v1619770750235!5m2!1ses!2ses" width="300" height="175" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </footer>

@@ -40,5 +40,10 @@ namespace ATuSalud.Controllers
             return View();
         }
 
+        public IActionResult Registro()
+        {
+            return View();
+        }
+
     }
 }
