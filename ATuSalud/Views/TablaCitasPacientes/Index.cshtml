@@ -12,10 +12,10 @@
     <thead class="bg-info text-light">
         <tr>
             <th>
-                Id del pacientes
+                Paciente
             </th>
             <th>
-                Id del profesional
+                Profesional
             </th>
             <th>
                 Fecha de registro
@@ -27,10 +27,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TablaPacienteId)
+                @Html.DisplayFor(modelItem => item.TablaPaciente.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TablaProfesionalId)
+                @Html.DisplayFor(modelItem => item.TablaProfesional.nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Fecha_registro)

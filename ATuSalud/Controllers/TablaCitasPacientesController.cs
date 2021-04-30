@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaCitasPacientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaCitasPaciente.ToListAsync());
+            return View(await _context.TablaCitasPaciente.Include(x => x.TablaPaciente).Include(x => x.TablaProfesional).ToListAsync());
         }
 
         // GET: TablaCitasPacientes/Details/5
@@ -33,7 +33,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaCitasPaciente = await _context.TablaCitasPaciente
+            var tablaCitasPaciente = await _context.TablaCitasPaciente.Include(x=>x.TablaPaciente).Include(x=>x.TablaProfesional)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaCitasPaciente == null)
             {
@@ -46,6 +46,8 @@ namespace ATuSalud.Controllers
         // GET: TablaCitasPacientes/Create
         public IActionResult Create()
         {
+            ViewData["Paciente"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
+            ViewData["Profesional"] = new SelectList(_context.TablaProfesional, "id", "nombre");
             return View();
         }
 
@@ -78,6 +80,8 @@ namespace ATuSalud.Controllers
             {
                 return NotFound();
             }
+            ViewData["Paciente"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
+            ViewData["Profesional"] = new SelectList(_context.TablaProfesional, "id", "nombre");
             return View(tablaCitasPaciente);
         }
 
@@ -124,7 +128,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaCitasPaciente = await _context.TablaCitasPaciente
+            var tablaCitasPaciente = await _context.TablaCitasPaciente.Include(x => x.TablaPaciente).Include(x => x.TablaProfesional)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaCitasPaciente == null)
             {

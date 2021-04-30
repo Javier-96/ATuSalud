@@ -12,14 +12,14 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <div class="form-group col-xs-12 col-lg-4">
-            <label>Id del paciente</label>
-            <input asp-for="TablaPacienteId" class="form-control" />
-            <span asp-validation-for="TablaPacienteId" class="text-danger"></span>
+            <label>Paciente</label>
+            <select asp-for="TablaPaciente" class="form-control" asp-items="ViewBag.Paciente"></select>
+            <span asp-validation-for="TablaPaciente" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label>Id del profesional</label>
-            <input asp-for="TablaProfesionalId" class="form-control" />
-            <span asp-validation-for="TablaProfesionalId" class="text-danger"></span>
+            <label>Profesional</label>
+            <select asp-for="TablaProfesional" class="form-control" asp-items="ViewBag.Profesional"></select>
+            <span asp-validation-for="TablaProfesional" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
             <label>Observaciones</label>
@@ -37,7 +37,7 @@
             <span asp-validation-for="Fecha_acabar" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label>Fecha de registro></label>
+            <label>Fecha de registro</label>
             <input asp-for="Fecha_registro" class="form-control" />
             <span asp-validation-for="Fecha_registro" class="text-danger"></span>
         </div>
