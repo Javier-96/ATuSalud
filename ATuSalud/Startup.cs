@@ -1,4 +1,5 @@
 using ConexionSQL.Models;
+using Demostracion;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,7 @@ namespace ATuSalud
 
             string v = this.Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<Contexto>(x => x.UseMySql(v));
+            services.AddSingleton<ServicioSQL, ServicioSQL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -29,9 +29,6 @@ namespace ATuSalud.Models
 
 		public bool Drogas { get; set; }
 
-		public string Hola { get; set; }
-
-
 	}
 
 }
