@@ -5,23 +5,16 @@
 }
 
 
-<h4>TablaDatosFisicos</h4>
+<h4>Datos físicos del paciente</h4>
 <hr />
 <form asp-action="Create">
     <div class="row">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-group col-xs-12 col-lg-4">
-            <label>Id del paciente</label>
+            <label>Paciente</label>
             <select asp-for="PacienteId" class="form-control" asp-items="ViewBag.PacienteID"></select>
         </div>
-
-        <!--<div class="form-group col-xs-12 col-lg-4">
-         <label>Nombre</label>
-         <input asp-for="Nombre" class="form-control" />
-         <span asp-validation-for="Nombre" class="text-danger"></span>
-     </div>
-        -->
         <div class="form-group col-xs-12 col-lg-4">
             <label>Peso</label>
             <input asp-for="Peso" class="form-control" />
@@ -39,7 +32,11 @@
         </div>
         <div class="form-group col-xs-12 col-lg-4">
             <label>Grupo sanguineo</label>
-            <input asp-for="Grupo_sanguineo" class="form-control" />
+            <select  asp-for="Grupo_sanguineo"class="input form-control col-2">
+                <option>AB</option>
+                <option>0+</option>
+            </select>
+            <!-- <input asp-for="Grupo_sanguineo" class="form-control" />-->
             <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
@@ -56,7 +53,7 @@
     </div>
         <div class="row">
             <div class="form-group col-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </div>
     
