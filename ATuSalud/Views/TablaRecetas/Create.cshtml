@@ -22,9 +22,8 @@
             <span asp-validation-for="Diagnostico" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-4 col-12">
-            <label>Medicamento Generico</label>
-            <input asp-for="Medicamento_generico" class="form-control" />
-            <span asp-validation-for="Medicamento_generico" class="text-danger"></span>
+            <label>Medicamento</label>
+            <select asp-for="MedicamentoID" class="form-control" asp-items="ViewBag.MedicamentoID"></select>
         </div>
         <div class="form-group col-lg-4 col-12">
             <label>Cantidad</label>
