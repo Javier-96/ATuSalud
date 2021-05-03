@@ -1,4 +1,5 @@
-﻿using Demostracion.Models;
+﻿using ConexionSQL.Models;
+using Demostracion.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
