@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaRecetas
         public async Task<IActionResult> Index(int? id)
         {
-            return View(await _context.TablaRecetas.Include(x=>x.Paciente).Include(x=>x.Medicamento).ToListAsync());
+            return View(await _context.TablaRecetas.Include(x=>x.Paciente).Include(x => x.Episodio).Include(x=>x.Medicamento).ToListAsync());
             
         }
 
@@ -34,7 +34,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaRecetas = await _context.TablaRecetas.Include(x=>x.Paciente).Include(x=>x.Medicamento)
+            var tablaRecetas = await _context.TablaRecetas.Include(x=>x.Paciente).Include(x=>x.Medicamento).Include(x=>x.Episodio)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaRecetas == null)
             {
@@ -47,6 +47,7 @@ namespace ATuSalud.Controllers
         // GET: TablaRecetas/Create
         public IActionResult Create()
         {
+            ViewData["EpisodioID"] = new SelectList(_context.TablaEpisodios, "Id", "Nombre");
             ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre");
             ViewData["MedicamentoID"] = new SelectList(_context.TablaMedicamentos, "Id", "Nombre_medicamento");
 
@@ -84,7 +85,7 @@ namespace ATuSalud.Controllers
             }
             ViewData["PacienteID"] = new SelectList(_context.TablaPaciente, "Id", "Nombre", tablaRecetas.PacienteID);
             ViewData["MedicamentoID"] = new SelectList(_context.TablaMedicamentos, "Id", "Nombre_medicamento", tablaRecetas.MedicamentoID);
-
+            ViewData["EpisodioID"] = new SelectList(_context.TablaEpisodios, "Id", "Nombre",tablaRecetas.EpisodioID);
             return View(tablaRecetas);
         }
 
@@ -93,7 +94,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Diagnostico,Medicamento_generico,Cantidad,Dosis,Duracion,Fecha")] TablaRecetas tablaRecetas)
+        public async Task<IActionResult> Edit(int id, TablaRecetas tablaRecetas)
         {
             if (id != tablaRecetas.Id)
             {

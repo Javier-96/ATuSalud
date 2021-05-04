@@ -4,17 +4,21 @@
     ViewData["Title"] = "Create";
 }
 
-<h4>Tabla Recetas</h4>
+<h4>Añadir Receta</h4>
 <hr />
 
 <form asp-action="Create">
     <div class="row">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-       
+
         <div class="form-group col-lg-4 col-12">
             <label>ID de la Reserva</label>
             <select asp-for="PacienteID" class="form-control" asp-items="ViewBag.PacienteID"></select>
+        </div>
+        <div class="form-group col-lg-4 col-12">
+            <label>Nombre del episodio</label>
+            <select asp-for="EpisodioID" class="form-control" asp-items="ViewBag.EpisodioID"></select>
         </div>
         <div class="form-group col-lg-4 col-12">
             <label>Diagnostico</label>

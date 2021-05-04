@@ -11,41 +11,41 @@
     <h4>Profesional</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label>Nombre</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.nombre)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label>Primer Apellido</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.apellido1)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label>Segundo Apellido</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.apellido2)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label>Especialidad</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.especialidad)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label>Nº Colegiado</label>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.num_colegiado)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             <label>Foto</label>
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.foto)
+        <dd class="col-sm-10">
+            <img src="/TablaProfesional/MostrarImagen/@Model.id" width="200px" />
         </dd>
     </dl>
     

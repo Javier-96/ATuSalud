@@ -13,15 +13,11 @@
             <th>
                 Nombre del paciente
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Motivo)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.Causa)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Medicación)
-            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -31,15 +27,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Paciente.Nombre)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Motivo)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Causa)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Medicación)
-            </td>
+           
             <td>
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>|
                 <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a>|
