@@ -126,7 +126,7 @@ namespace ATuSalud.Controllers
                 return NotFound();
             }
 
-            var tablaDatosFisicos = await _context.TablaDatosFisicos
+            var tablaDatosFisicos = await _context.TablaDatosFisicos.Include(x=>x.Paciente)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tablaDatosFisicos == null)
             {
