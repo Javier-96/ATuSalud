@@ -9,16 +9,21 @@ using ATuSalud.Models;
 using ConexionSQL.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using ATuSalud.ViewData;
+using Demostracion;
 
 namespace ATuSalud.Controllers
 {
     public class TablaProfesionalController : Controller
     {
+        //Accede a la base de datos
         private readonly Contexto _context;
-
-        public TablaProfesionalController(Contexto context)
+        //Ahorrar algoritmo recorrido etc
+        private readonly ServicioSQL _sql;
+        public TablaProfesionalController(Contexto context, ServicioSQL sql)
         {
             _context = context;
+            _sql = sql;
         }
 
         // GET: TablaProfesional

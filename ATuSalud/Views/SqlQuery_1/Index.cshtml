@@ -1,0 +1,33 @@
+﻿@using ATuSalud.ViewData
+@model List<ProfesionalViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de profesionales ordenados por nombre y apellido</h3>
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Primer apellido</th>
+                <th>Segundo apellido</th>
+                <th>Numero de colegiado</th>
+            </tr>
+        </thead>
+        @foreach (ProfesionalViewData item in Model)
+        {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.nombre</td>
+            <td>@item.apellido1</td>
+            <td>@item.apellido2</td>
+            <td>@item.num_colegiado</td>
+        </tr>
+        }
+    </table>
+}
+
