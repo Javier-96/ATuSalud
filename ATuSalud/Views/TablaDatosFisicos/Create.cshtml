@@ -30,23 +30,28 @@
             <input asp-for="Alergias" class="form-control" />
             <span asp-validation-for="Alergias" class="text-danger"></span>
         </div>
-        <div class="form-group col-xs-12 col-lg-4">
+        <div class="form-group col-xs-12 col-md-3">
             <label>Grupo sanguineo</label>
-            <select  asp-for="Grupo_sanguineo"class="input form-control col-2">
-                <option>AB</option>
-                <option>0+</option>
+            <select asp-for="Grupo_sanguineo" class="input form-control col-md-4">
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
             </select>
-            <!-- <input asp-for="Grupo_sanguineo" class="form-control" />-->
             <span asp-validation-for="Grupo_sanguineo" class="text-danger"></span>
         </div>
-        <div class="form-group col-xs-12 col-lg-4">
+        <div class="form-group col-xs-12 col-lg-2">
             <label class="form-check-label">
-                @Html.DisplayNameFor(model => model.Fumador)<input class="form-check-input ml-3" asp-for="Fumador" />
+                @Html.DisplayNameFor(model => model.Fumador)<input class="form-check-input ml-2" asp-for="Fumador" />
             </label>
         </div>
-        <div class="form-group col-xs-12 col-lg-4">
+        <div class="form-group col-xs-12 col-lg-2">
             <label class="form-check-label">
-                @Html.DisplayNameFor(model => model.Drogas)<input class="form-check-input ml-3" asp-for="Drogas" />
+                @Html.DisplayNameFor(model => model.Drogas)<input class="form-check-input ml-2" asp-for="Drogas" />
 
             </label>
         </div>

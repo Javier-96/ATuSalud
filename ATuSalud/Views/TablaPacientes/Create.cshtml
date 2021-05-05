@@ -12,17 +12,17 @@
     <div class="row">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label>Nombre></label>
+            <label>Nombre</label>
             <input asp-for="Nombre" class="form-control" />
             <span asp-validation-for="Nombre" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label>Apellido 1</label>
+            <label>Primer apellido</label>
             <input asp-for="Apellido1" class="form-control" />
             <span asp-validation-for="Apellido1" class="text-danger"></span>
         </div>
         <div class="form-group col-xs-12 col-lg-4">
-            <label>Apellido 2</label>
+            <label>Segundo apellido</label>
             <input asp-for="Apellido2" class="form-control" />
             <span asp-validation-for="Apellido2" class="text-danger"></span>
         </div>
@@ -58,15 +58,18 @@
         </div>
         <div class="form-group col-xs-12 col-lg-4">
             <label>Sexo</label>
-            <input asp-for="Sexo" class="form-control" />
-            <span asp-validation-for="Sexo" class="text-danger"></span>
+            <select asp-for="Sexo" class="input form-control col-md-5">
+                <option value="H">Masculino</option>
+                <option value="M">Femenino</option>
+                <option value="O">Otro</option>
+            </select>
         </div>
-        <div class="form-group form-check">
+        <div class="form-group col-lg-2">
             <label class="form-check-label">
-                <br />
-                <input class="form-check-input" asp-for="Seguro_privado" /> @Html.DisplayNameFor(model => model.Seguro_privado)
+                Seguro privado<input type="checkbox" class="form-check-input ml-2" asp-for="Seguro_privado" />
             </label>
         </div>
+      
     </div>
     <div>
         <div class="form-group">

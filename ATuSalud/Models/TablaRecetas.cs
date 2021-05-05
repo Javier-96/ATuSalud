@@ -22,6 +22,9 @@ namespace ATuSalud.Models
         [Column("Id_Paciente")]
         public int? PacienteID { get; set; }
         public TablaPaciente Paciente { get; set; }
+        [Column("Id_Episodio")]
+        public int? EpisodioID { get; set; }
+        public TablaEpisodios Episodio { get; set; }
 
     }
 }

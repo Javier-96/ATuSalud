@@ -5,11 +5,16 @@
 }
 
 
-<h4>Tabla Recetas</h4>
+<h4>Receta</h4>
 <hr />
 
 <form asp-action="Edit">
     <div class="row">
+        <div class="form-group col-lg-4 col-12">
+            <label>Nombre del episodio</label>
+            <select asp-for="EpisodioID" class="form-control" asp-items="ViewBag.EpisodioID"></select>
+            <span asp-validation-for="EpisodioID" class="text-danger"></span>
+        </div>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <div class="form-group col-lg-4 col-12">

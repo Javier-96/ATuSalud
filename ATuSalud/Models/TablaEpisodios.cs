@@ -13,12 +13,18 @@ namespace ATuSalud.Models
         [Column("Id_Paciente")]
         public int PacienteId { get; set; }
         public TablaPaciente Paciente { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFinal { get; set; }
-        public string Motivo { get; set; }
+        public DateTime? FechaInicio { get; set; }
+        public DateTime? FechaFinal { get; set; }
+       
         public string Causa { get; set; }
-        [Column("Medicacion")]
-        public string Medicación { get; set; }
+       
+        [Column("ID_CodigoCIAP")]
+        public int? CodigoId { get; set; }
+        public TablaCodigoCiap Codigo { get; set; }
+        public string Nombre { get; set; }
+
+        
+
 
     }
 }
