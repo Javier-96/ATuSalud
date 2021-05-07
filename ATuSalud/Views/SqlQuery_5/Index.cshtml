@@ -1,0 +1,27 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_5ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de los medicamentos ordenados por nombre</h3>
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+              
+                <th>Nombre Medicamento</th>
+              
+            </tr>
+        </thead>
+        @foreach (SqlQuery_5ViewData item in Model)
+        {
+            <tr>
+                <td>@item.nombre_medicamento</td>
+               
+            </tr>
+        }
+    </table>
+}
