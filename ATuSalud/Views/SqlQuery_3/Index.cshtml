@@ -1,0 +1,28 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_3ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de las patologías ordenados por código</h3>
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+                <th>Código</th>
+                <th>Enfermedad</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        @foreach (SqlQuery_3ViewData item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Enfermedad</td>
+                <td>@item.Descripcion</td>
+            </tr>
+        }
+    </table>
+}
