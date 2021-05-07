@@ -1,0 +1,26 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_7ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de profesionales que tienen de media más de 1 episodio abierto por paciente. (Profesionales que NO cierran episodios)</h3>
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+                <th>Nombre</th>
+                <th>Numero de medicamentos</th>
+            </tr>
+        </thead>
+        @foreach (SqlQuery_7ViewData item in Model)
+        {
+            <tr>
+                <td>@item.nombre @item.apellido1</td>
+                <td>@item.mediaEpisodios</td>
+            </tr>
+        }
+    </table>
+}
