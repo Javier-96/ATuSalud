@@ -44,6 +44,9 @@ namespace ATuSalud.Controllers
         {
             return View();
         }
-
+        public IActionResult Listado()
+        {
+            return View();
+        }
     }
 }
