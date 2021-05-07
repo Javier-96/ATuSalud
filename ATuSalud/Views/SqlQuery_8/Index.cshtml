@@ -1,0 +1,42 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_8ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de los antecedentes de un paciente seleccionado.</h3>
+
+<form asp-action="Index" method="get">
+    <div class="row">
+        <div class="col-4">
+            <select name="idPaciente" class="form-control"
+                    asp-items="ViewBag.Pac">
+                <option value="">Todos</option>
+            </select>
+        </div>
+    </div>
+    <input type="submit" value="Consultar"
+           class="btn btn-primary" />
+</form>
+<hr />
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+                <th>Id del antecedente</th>
+                <th>Enfermedad CIAP</th>
+                <th>Nombre de paciente</th>
+            </tr>
+        </thead>
+        @foreach (SqlQuery_8ViewData item in Model)
+        {
+            <tr>
+                <td>@item.id_antecedente
+                <td>@item.enfermedad</td>
+                <td>@item.nombre</td>
+            </tr>
+        }
+    </table>
+}
