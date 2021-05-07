@@ -1,0 +1,26 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_4ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de cuantas citas diarias tiene de media cada profesional.</h3>
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+                <th>Fecha de atencion </th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        @foreach (SqlQuery_4ViewData item in Model)
+        {
+            <tr>
+                <td>@item.media</td>
+                <td>@item.nombre</td>
+            </tr>
+        }
+    </table>
+}
