@@ -21,6 +21,7 @@ namespace ATuSalud.Models
 		public DateTime Fecha_acabar { get; set; }
 		public string Observaciones { get; set; }
 		public DateTime Fecha_registro { get; set; }
+		public string Asistencia { get; set; }
 
 	}
 }

@@ -6,7 +6,7 @@ ORDER BY apellido1, nombre
 
 -- Listado de pacientes menores de edad ordenados por apellidos y nombre.
 
-SELECT *
+SELECT apellido1,apellido2,nombre
 FROM tablapaciente
 WHERE TIMESTAMPDIFF(YEAR, Fecha_de_nacimiento, CURDATE()) < 18
 ORDER BY apellido1,apellido2,nombre
@@ -20,6 +20,7 @@ ORDER BY codigo
 
 -- Listado de cuantas citas diarias tiene de media cada profesional.
 -- COUNT (DISTINCT) cuenta el numero de citas distintas, si tienes
+
 SELECT p.nombre, COUNT(1)/COUNT(DISTINCT c.Fecha_atencion)
 FROM tablaprofesional p
 INNER JOIN tablacitaspaciente c ON (p.id=c.Id_profesional) 
@@ -52,7 +53,7 @@ INNER JOIN tablaprofesional p ON (p.id = i.id_profesional)
 GROUP BY p.id, p.nombre
 HAVING AVG(episodiosAbiertos) > 5
 
--- Listado de los antecedentes de un paciente seleccionado.
+8-- Listado de los antecedentes de un paciente seleccionado.
 
 SELECT a.id,c.enfermedad,p.nombre
 FROM tablaantecedentes a
@@ -60,9 +61,10 @@ INNER JOIN tablapaciente p
 	ON(p.id = a.Id_paciente)
 INNER JOIN tablacodigociap c
 	ON(c.id=a.id_ciap)
+WHERE 
 	
 -- Con parámetros sencillos:
--- Listado de episodios (con patología) abiertos que tiene un paciente seleccionado.
+9 -- Listado de episodios (con patología) abiertos que tiene un paciente seleccionado.
 
 SELECT e.id,p.Nombre,p.Apellido1
 FROM tablaepisodios e
