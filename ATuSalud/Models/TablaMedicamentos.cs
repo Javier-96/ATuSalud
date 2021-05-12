@@ -13,7 +13,7 @@ namespace ATuSalud.Models
         public string Forma_farmaceutica { get; set; }
 
         [Column("id_efectoSec")]
-        public int EfectoSecId { get; set; }
-        public TablaEfectos_secundarios EfectosSec { get; set; }
+        public int? EfectoSecId { get; set; }
+        public TablaEfectos_secundarios EfectoSec { get; set; }
     }
 }
