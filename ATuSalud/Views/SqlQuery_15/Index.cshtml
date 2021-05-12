@@ -1,0 +1,25 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_15ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de pacientes que no han asistido a la cita</h3>
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+                <th>Nombre y apellidos</th>
+            </tr>
+        </thead>
+        @foreach (SqlQuery_15ViewData item in Model)
+        {
+            <tr>
+                <td>@item.Nombre @item.Apellido1 @item.Apellido2</td>
+            </tr>
+        }
+    </table>
+}
+
