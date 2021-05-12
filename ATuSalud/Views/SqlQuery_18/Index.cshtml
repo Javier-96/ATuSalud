@@ -1,0 +1,32 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_18ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de los pacientes que tienen antecedentes de una patología relativa al CIAP relativo a la psicología (CIAP empieza por P</h3>
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+          
+                <th>Nombre</th>
+                <th>Codigo CIAP</th>
+                <th>Enfermedad</th>
+                <th>Familiar</th>
+            </tr>
+        </thead>
+        @foreach (SqlQuery_18ViewData item in Model)
+        {
+            <tr>
+          
+                <td>@item.nombre</td>
+                <td>@item.codigo</td>
+                <td>@item.Enfermedad</td>
+                <td>@item.Familiar</td>
+            </tr>
+        }
+    </table>
+}
