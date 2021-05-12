@@ -15,6 +15,5 @@ namespace ATuSalud.Models
         public int? num_colegiado { get; set; }
         public byte[] foto { get; set; }
 
-
     }
 }
