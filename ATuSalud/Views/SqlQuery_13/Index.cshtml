@@ -1,0 +1,47 @@
+﻿@using ATuSalud.ViewData
+@model List<SqlQuery_13ViewData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Listado de citas de un paciente seleccionado.</h3>
+
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-1">
+            Paciente:
+        </div>
+        <div class="col-4">
+            <select name="idPaciente" class="form-control" asp-items="ViewBag.Paciente">
+                <option value="0">Todos</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <input type="submit" class="btn btn-dark" value="Consultar" />
+        </div>
+    </div>
+</form>
+<hr />
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha atencion</th>
+                <th>Fecha finalizacion</th>
+                <th>Fecha registro</th>
+            </tr>
+        </thead>
+        @foreach (SqlQuery_13ViewData item in Model)
+        {
+    <tr>
+        <td>@item.Nombre</td>
+        <td>@item.Fecha_atencion</td>
+        <td>@item.Fecha_acabar</td>
+        <td>@item.Fecha_registro</td>
+    </tr>
+        }
+    </table>
+}
+
