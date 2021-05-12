@@ -24,8 +24,8 @@ CREATE TABLE Incompatibilidades(
 ALTER TABLE tablarecetas ADD dias_regenerado INT NOT NULL DEFAULT 0;
 
 
-SELECT *
-FROM tablapaciente 
+SELECT p.id,p.Nombre,p.Apellido1,p.Apellido2
+FROM tablapaciente p
 WHERE id IN (
     SELECT tr.id_paciente
     FROM incompatibilidades ti 

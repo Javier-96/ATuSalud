@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace ATuSalud.ViewData
 {
-    public class SqlQuery_15ViewData
+    public class SqlQuery_17ViewData
     {
         public string nombre { get; set; }
-        public string apellido1 { get; set; }
+        public string especialidad { get; set; }
     }
 }

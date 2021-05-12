@@ -33,6 +33,7 @@ namespace ConexionSQL.Models
         public virtual DbSet<TablaProfesional_Paciente> TablaProfesional_Paciente{ get; set; }
         public DbSet<ATuSalud.Models.TablaRegistroCuenta> TablaRegistroCuenta { get; set; }
         public DbSet<ATuSalud.Models.TablaCodigoCiap> TablaCodigoCiap { get; set; }
+        public DbSet<ATuSalud.Models.TablaCentros> TablaCentros { get; set; }
 
     }
 }
