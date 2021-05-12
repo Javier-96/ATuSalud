@@ -21,6 +21,11 @@ namespace ConexionSQL.Models
         public DbSet<ATuSalud.Models.TablaRecetas> TablaRecetas { get; set; }
         public DbSet<ATuSalud.Models.TablaPatologias> TablaPatologias { get; set; }
         public DbSet<ATuSalud.Models.TablaMedicamentos> TablaMedicamentos { get; set; }
+ 
+
+       
+
+
 
        
 
@@ -32,6 +37,8 @@ namespace ConexionSQL.Models
         public virtual DbSet<TablaProfesional_Paciente> TablaProfesional_Paciente{ get; set; }
         public DbSet<ATuSalud.Models.TablaRegistroCuenta> TablaRegistroCuenta { get; set; }
         public DbSet<ATuSalud.Models.TablaCodigoCiap> TablaCodigoCiap { get; set; }
+        public DbSet<ATuSalud.Models.TablaMedicamento_efectos> TablaMedicamentoEfectos { get; set; }
+        public DbSet<ATuSalud.Models.TablaEfectos_secundarios> TablaEfectosSecundarios { get; set; }
         public DbSet<ATuSalud.Models.TablaIncompatibilidades> TablaIncompatibilidades { get; set; }
 
     }
