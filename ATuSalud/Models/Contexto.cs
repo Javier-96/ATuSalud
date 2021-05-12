@@ -24,7 +24,6 @@ namespace ConexionSQL.Models
 
        
 
-
         public virtual DbSet<TablaDatosFisicos> TablaDatosFisicos { get; set; }
         public virtual DbSet<TablaCitasPaciente> TablaCitasPaciente { get; set; }
         
@@ -33,6 +32,7 @@ namespace ConexionSQL.Models
         public virtual DbSet<TablaProfesional_Paciente> TablaProfesional_Paciente{ get; set; }
         public DbSet<ATuSalud.Models.TablaRegistroCuenta> TablaRegistroCuenta { get; set; }
         public DbSet<ATuSalud.Models.TablaCodigoCiap> TablaCodigoCiap { get; set; }
+        public DbSet<ATuSalud.Models.TablaIncompatibilidades> TablaIncompatibilidades { get; set; }
 
     }
 }
