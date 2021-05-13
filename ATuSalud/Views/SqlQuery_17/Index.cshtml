@@ -6,6 +6,29 @@
 
 <h3>Listado de profesionales ordenados por nombre y apellido</h3>
 
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-1">
+            Profesional:
+        </div>
+        <div class="col-4">
+            <select name="especialidad" class="form-control" asp-items="ViewBag.Especialidad">
+                <option value="0">Todos</option>
+            </select>
+        </div>
+        <div class="col-1">
+            Fecha:
+        </div>
+        <div class="col-4">
+            <input type="date" name="fecha" value="ViewBag.Fecha" />
+        </div>
+        <div class="col-2">
+            <input type="submit" class="btn btn-dark" value="Consultar" />
+        </div>
+    </div>
+</form>
+<hr />
+
 @if (Model != null)
 {
     <table class="table table-striped">
