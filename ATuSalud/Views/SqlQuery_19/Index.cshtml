@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h3>Listado de profesionales ordenados por nombre y apellido</h3>
+<h3>Listado de los medicamentos que tienen efectos secundarios que pueden ser severos</h3>
 
 @if (Model != null)
 {
@@ -13,7 +13,7 @@
             <tr>
                 
                 <th>Nombre medicamento</th>
-                <th>Numero efecto</th>
+                <th>efecto</th>
             </tr>
         </thead>
         @foreach (SqlQuery_19ViewData item in Model)

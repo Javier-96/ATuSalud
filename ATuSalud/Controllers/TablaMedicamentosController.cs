@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaMedicamentos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaMedicamentos.ToListAsync());
+            return View(await _context.TablaMedicamentos.Include(x=>x.EfectoSec).ToListAsync());
         }
 
         // GET: TablaMedicamentos/Details/5
@@ -46,6 +46,8 @@ namespace ATuSalud.Controllers
         // GET: TablaMedicamentos/Create
         public IActionResult Create()
         {
+            ViewData["EfectoID"] = new SelectList(_context.TablaEfectosSecundarios, "id", "nombre_efecto");
+
             return View();
         }
 
@@ -54,7 +56,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre_medicamento,Forma_farmaceutica,Efectos_secundarios")] TablaMedicamentos tablaMedicamentos)
+        public async Task<IActionResult> Create( TablaMedicamentos tablaMedicamentos)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +88,7 @@ namespace ATuSalud.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre_medicamento,Forma_farmaceutica,Efectos_secundarios")] TablaMedicamentos tablaMedicamentos)
+        public async Task<IActionResult> Edit(int id,  TablaMedicamentos tablaMedicamentos)
         {
             if (id != tablaMedicamentos.Id)
             {
