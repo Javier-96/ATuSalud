@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-1">
+            Pacientes:
+        </div>
+        <div class="col-4">
+            <select name="PacienteId" class="form-control" asp-items="ViewBag.Pacientes">
+                <option>Todos</option>
+            </select><br />
+        </div>
+        <div class="col-1">
+            CIAP:
+        </div>
+        <div class="col-4">
+            <select name="CodigoCIAPId" class="form-control" asp-items="ViewBag.CodigosCIAP">
+                <option>Todos</option>
+            </select><br />
+        </div>
+        <div class="col-2">
+            <input type="submit" class="btn btn-dark" value="Consultar" />
+        </div>
+    </div>
+</form>
+<hr />
+-->
+<div class="row">
+    <div class="col-6" id="panel1">Listado 1</div>
+    <div class="col-6" id="panel2">Listado 2</div>
+</div>
+<div class="row">
+    <div class="col-6" id="panel3">Listado 3</div>
+    <div class="col-6" id="panel4">Listado 4</div>
+</div>
+
+@section Scripts{
+    <script>
+        function refrescarListado1() {
+            $.ajax({
+                url: '/DashBoardAjax/Listado1',
+                success: function (htmlPartial) {
+                    $('#panel1').html(htmlPartial);
+                }
+            })
+        }
+
+        function refrescarListado2() {
+            $.ajax({
+                url: '/DashBoardAjax/Listado2',
+                success: function (htmlPartial) {
+                    $('#panel2').html(htmlPartial);
+                }
+            })
+        }
+
+        function refrescarListado3() {
+            $.ajax({
+                url: '/DashBoardAjax/Listado3',
+                success: function (htmlPartial) {
+                    $('#panel3').html(htmlPartial);
+                }
+            })
+        }
+
+        function refrescarListado4() {
+            $.ajax({
+                url: '/DashBoardAjax/Listado4',
+                success: function (htmlPartial) {
+                    $('#panel4').html(htmlPartial);
+                }
+            })
+        }
+
+        $(document).ready(function () {
+            refrescarListado1();
+            refrescarListado2();
+            refrescarListado3();
+            refrescarListado4();
+        })
+    </script>
+}
