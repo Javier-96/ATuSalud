@@ -2,6 +2,8 @@
 using ConexionSQL.Models;
 using Demostracion;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +23,21 @@ namespace ATuSalud.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.Especialidad = new SelectList(_context.TablaProfesional, "especialidad", "especialidad");
+            
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(SqlQuery_17Param p)
+        {
             string sql = " SELECT c.nombre,p.especialidad " +
                          " FROM tablaprofesional p " + 
                          " INNER JOIN tablaCentros c ON(c.id= p.id_centro) " +
-                         " WHERE p.especialidad = 'Oncologia' ";
+                         " WHERE p.especialidad = @especialidad ";
+            MySqlParameter[] param =
+             {
+                new MySqlParameter ("@especialidad", p.especialidad)
+            };
             List<SqlQuery_17ViewData> lista =
             _sql.EjecutarSQL<SqlQuery_17ViewData>(
                     _context, sql,
@@ -32,7 +45,7 @@ namespace ATuSalud.Controllers
                     {
                         nombre = x.GetString(0),
                         especialidad = x.GetString(1),
-                    }
+                    },param
                 );
             return View(lista);
         }
