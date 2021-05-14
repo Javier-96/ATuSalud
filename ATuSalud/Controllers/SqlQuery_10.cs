@@ -30,19 +30,26 @@ namespace ATuSalud.Controllers
              
             };
 
-            string sql = "SELECT p.nombre,r.Id_medicamento,m.Nombre_medicamento FROM tablarecetas r " +
-                "INNER JOIN tablapaciente p ON(p.id=r.ID_Paciente) " +
-                "INNER JOIN tablamedicamentos m ON(m.id=r.Id_medicamento) " +
-                "WHERE 1=1 " +
+            string sql = "SELECT p.nombre,p.apellido1,p.apellido2,m.Nombre_medicamento,r.diagnostico,ifnull(r.cantidad,''),ifnull(r.dosis,''),ifnull(r.duracion,''),ifnull(r.fecha,'') " +
+                " FROM tablarecetas r " +
+                " INNER JOIN tablapaciente p ON(p.id=r.ID_Paciente) " +
+                " INNER JOIN tablamedicamentos m ON(m.id=r.Id_medicamento) " +
+                " WHERE 1=1 " +
                 (id != null ? " AND p.id = @id" : "");
             List<SqlQuery_10ViewData> lista =
             _sql.EjecutarSQL<SqlQuery_10ViewData>(
                     _context, sql,
                     x => new SqlQuery_10ViewData()
                     {
-                        nombre_pacientes = x.GetString(0),
-                        Id_medicamento = x.GetInt32(1),
-                        Nombre_medicamento = x.GetString(2)
+                        nombre = x.GetString(0),
+                        apellido1 = x.GetString(1),
+                        apellido2 = x.GetString(2),
+                        medicamento = x.GetString(3),
+                        diagnostico = x.GetString(4),
+                        cantidad = x.GetString(5),
+                        dosis = x.GetString(6),
+                        duracion = x.GetString(7),
+                        fecha = x.GetString(8)
 
                     },param
 

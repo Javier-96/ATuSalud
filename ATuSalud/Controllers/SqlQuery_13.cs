@@ -33,7 +33,7 @@ namespace ATuSalud.Controllers
         public IActionResult Index(SqlQuery_13Param p)
         {
             ViewBag.Paciente = new SelectList(_context.TablaPaciente, "Id", "Nombre");
-            string sql = "SELECT p.Nombre,cp.Fecha_atencion,cp.Fecha_acabar,cp.Fecha_registro " +
+            string sql = "SELECT p.Nombre,p.Apellido1,p.Apellido2,cp.Fecha_atencion,cp.Fecha_acabar,cp.Fecha_registro " +
                 " FROM tablacitaspaciente cp " +
                 " INNER JOIN tablapaciente p ON(p.id = cp.Id_paciente) " +
                 " WHERE 1=1 " +
@@ -49,9 +49,11 @@ namespace ATuSalud.Controllers
                     x => new SqlQuery_13ViewData()
                     {
                         Nombre = x.GetString(0),
-                        Fecha_atencion = x.GetDateTime(1),
-                        Fecha_acabar = x.GetDateTime(2),
-                        Fecha_registro = x.GetDateTime(3)
+                        Apellido1 = x.GetString(1),
+                        Apellido2 = x.GetString(2),
+                        Fecha_atencion = x.GetDateTime(3),
+                        Fecha_acabar = x.GetDateTime(4),
+                        Fecha_registro = x.GetDateTime(5)
                     },
                     param
                 );

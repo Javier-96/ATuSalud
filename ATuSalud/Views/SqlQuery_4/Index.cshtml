@@ -12,16 +12,15 @@
         <thead class="bg-info text-light">
             <tr>
                 <th>Nombre del profesional</th>
-                <th>Media de citas </th>
+                <th>Media de citas diarias </th>
+
             </tr>
         </thead>
         @foreach (SqlQuery_4ViewData item in Model)
         {
     <tr>
-
         <td>@item.nombre @item.apellido1 @item.apellido2</td>
         <td>@item.media</td>
-
     </tr>
         }
     </table>

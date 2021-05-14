@@ -96,4 +96,7 @@ Modificaciones realizadas sobre la base de datos:
 
 Analizada el proyecto con SonarCloud. Version 1.0 del proyecto en SonarCloud. Solucionados problemas con etiquetas 'critical' y 'Blocker'.
 ![Captura](https://user-images.githubusercontent.com/82440555/118233513-49b8ba00-b492-11eb-9a16-0c6b1baeb6f2.JPG)
+Problemas Critical de version 1.0
+![image](https://user-images.githubusercontent.com/82440555/118235603-496dee00-b495-11eb-9453-7b31de902d8e.png)
+
 
