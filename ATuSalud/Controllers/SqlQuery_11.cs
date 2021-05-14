@@ -23,7 +23,7 @@ namespace ATuSalud.Controllers
         }
         public IActionResult Index(int? id)
         {
-            string sql = "SELECT p.nombre NombrePaciente, pro.nombre NombreProfesional, m.Nombre_medicamento " +
+            string sql = "SELECT p.nombre NombrePaciente,p.Apellido1, pro.nombre NombreProfesional,pro.Apellido1, m.Nombre_medicamento, ifnull(r.Fecha,'') " +
                            " FROM tablarecetas r " +
                            " INNER JOIN tablapaciente p " +
                            " ON(p.id = r.ID_Paciente) " +
@@ -46,8 +46,11 @@ namespace ATuSalud.Controllers
                     x => new SqlQuery_11ViewData()
                     {
                         NombrePaciente = x.GetString(0),
-                        NombreProfesional = x.GetString(1),
-                        Nombre_medicamento = x.GetString(2),
+                        ApellidoPaciente = x.GetString(1),
+                        NombreProfesional = x.GetString(2),
+                        ApellidoProfesional=x.GetString(3),
+                        Nombre_medicamento=x.GetString(4),
+                        Fecha=x.GetString(5)
                     },param
                 );
             ViewBag.Profesional = new SelectList(_context.TablaProfesional, "id", "nombre", id);

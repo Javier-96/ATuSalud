@@ -32,14 +32,16 @@
                 <th>Paciente </th>
                 <th>Profesional</th>
                 <th>Medicamento</th>
+                <th>Fecha</th>
             </tr>
         </thead>
         @foreach (SqlQuery_11ViewData item in Model)
         {
     <tr>
-        <td>@item.NombrePaciente</td>
-        <td>@item.NombreProfesional</td>
+        <td>@item.NombrePaciente @item.ApellidoPaciente</td>
+        <td>@item.NombreProfesional @item.ApellidoProfesional</td>
         <td>@item.Nombre_medicamento</td>
+        <td>@item.Fecha</td>
     </tr>
         }
     </table>

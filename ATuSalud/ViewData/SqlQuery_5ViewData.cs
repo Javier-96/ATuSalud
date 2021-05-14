@@ -9,6 +9,6 @@ namespace ATuSalud.ViewData
     {
         public string nombre_medicamento { get; set; }
         public string forma_farmaceutica { get; set; }
-
+        public string nombre_efecto { get; set; }
     }
 }

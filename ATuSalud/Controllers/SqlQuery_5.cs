@@ -21,7 +21,11 @@ namespace ATuSalud.Controllers
         }
         public IActionResult Index()
         {
-            string sql = "SELECT nombre_medicamento, Forma_farmaceutica FROM tablamedicamentos ORDER BY nombre_medicamento";
+            string sql = "SELECT nombre_medicamento,Forma_farmaceutica,es.nombre_efecto "+
+                            " FROM tablamedicamentos m " +
+                            " INNER JOIN tablaefectos_secundarios es ON(es.id= id_efectoSec) "+
+                            " ORDER BY nombre_medicamento";
+
             List<SqlQuery_5ViewData> lista =
             _sql.EjecutarSQL<SqlQuery_5ViewData>(
                     _context, sql,
@@ -29,7 +33,8 @@ namespace ATuSalud.Controllers
                     {
 
                         nombre_medicamento = x.GetString(0),
-                        forma_farmaceutica = x.GetString(1)
+                        forma_farmaceutica = x.GetString(1),
+                        nombre_efecto=x.GetString(2)
 
                     }
                 );
