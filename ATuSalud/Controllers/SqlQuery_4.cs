@@ -21,7 +21,7 @@ namespace ATuSalud.Controllers
         }
         public IActionResult Index()
         {
-            string sql = "SELECT p.nombre, p.apellido1, p.apellido2, COUNT(1)/COUNT(DISTINCT c.Fecha_atencion) FROM tablaprofesional p INNER JOIN tablacitaspaciente c ON(p.id= c.Id_profesional) GROUP BY p.id";
+            string sql = "SELECT p.nombre, p.apellido1, p.apellido2, COUNT(1)/COUNT(DISTINCT DATE(c.Fecha_atencion)) FROM tablaprofesional p INNER JOIN tablacitaspaciente c ON(p.id= c.Id_profesional) GROUP BY p.id";
             List<SqlQuery_4ViewData> lista =
             _sql.EjecutarSQL<SqlQuery_4ViewData>(
                     _context, sql,
