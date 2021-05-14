@@ -21,7 +21,7 @@ namespace ATuSalud.Controllers
         }
         public IActionResult Index()
         {
-            string sql = "SELECT p.nombre, p.apellido1, AVG(episodiosAbiertos) FROM(SELECT id_paciente, COUNT(1) episodiosAbiertos FROM tablaepisodios WHERE fechafinal IS NULL GROUP BY id_paciente) e INNER JOIN tablaprofesional_paciente i ON(i.id_Paciente= e.id_paciente) INNER JOIN tablaprofesional p ON(p.id = i.id_profesional) GROUP BY p.id, p.nombre HAVING AVG(episodiosAbiertos) > 1";
+            string sql = "SELECT p.nombre, p.apellido1, p.apellido2, AVG(episodiosAbiertos) FROM(SELECT id_paciente, COUNT(1) episodiosAbiertos FROM tablaepisodios WHERE fechafinal IS NULL GROUP BY id_paciente) e INNER JOIN tablaprofesional_paciente i ON(i.id_Paciente= e.id_paciente) INNER JOIN tablaprofesional p ON(p.id = i.id_profesional) GROUP BY p.id, p.nombre HAVING AVG(episodiosAbiertos) > 1";
             List<SqlQuery_7ViewData> lista =
             _sql.EjecutarSQL<SqlQuery_7ViewData>(
                     _context, sql,
@@ -29,7 +29,8 @@ namespace ATuSalud.Controllers
                     {
                         nombre = x.GetString(0),
                         apellido1 = x.GetString(1),
-                        mediaEpisodios = (int)x.GetDouble(2)
+                        apellido2 = x.GetString(2),
+                        mediaEpisodios = (int)x.GetDouble(3)
                     }
                 );
             return View(lista);

@@ -4,51 +4,57 @@
     ViewData["Title"] = "Index";
 }
 
-<p class="btn btn-info">
-    <a asp-action="Create" style="color: white;">Añadir receta</a>
-</p>
+<div class="row">
+    <br />
+    <a asp-action="Create" class="btn btn-info " style="color: white;">Añadir receta</a>
+    <div class="col-1"> </div>
+    <a asp-controller="sqlquery_11" asp-action="Index" style="color: white;" class="btn btn-info ">Listado recetas</a>
+</div>
+<br />
 
-<table class="table table-striped">
-    <thead class="bg-info text-light">
-        <tr>
-            <th>
-                Nombre del Paciente
-            </th>
-            <th>
-                Diagnóstico
-            </th>
-            <th>
-                Medicamento
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="row">
+    <table class="table table-striped">
+        <thead class="bg-info text-light">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Paciente.Nombre) @Html.DisplayFor(modelItem => item.Paciente.Apellido1) @Html.DisplayFor(modelItem => item.Paciente.Apellido2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Diagnostico)
-                    
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Medicamento.Nombre_medicamento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fecha)
-                </td>
-                <td>
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-                </td>
+                <th>
+                    Nombre del Paciente
+                </th>
+                <th>
+                    Diagnóstico
+                </th>
+                <th>
+                    Medicamento
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Paciente.Nombre) @Html.DisplayFor(modelItem => item.Paciente.Apellido1) @Html.DisplayFor(modelItem => item.Paciente.Apellido2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Diagnostico)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Medicamento.Nombre_medicamento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
