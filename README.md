@@ -93,3 +93,7 @@ Modificaciones realizadas sobre la base de datos:
 	•ALTER TABLE tablamedicamentos ADD FOREIGN KEY (id_efectoSec) REFERENCES TablaMedicamento_efectos(id);
 
 	•ALTER TABLE tablamedicamentos DROP COLUMN Efectos_secundarios
+
+Analizada el proyecto con SonarCloud. Version 1.0 del proyecto en SonarCloud. Solucionados problemas con etiquetas 'critical' y 'Blocker'.
+![Captura](https://user-images.githubusercontent.com/82440555/118233513-49b8ba00-b492-11eb-9a16-0c6b1baeb6f2.JPG)
+
