@@ -42,12 +42,19 @@ Modificaciones realizadas sobre la base de datos:
 			DEFAULT 'No'
 
 •CREATE TABLE Incompatibilidades(
+
 	id INT PRIMARY KEY AUTO_INCREMENT,
+	
 	id_medicamento INT,
+	
 	id_medicamento_incompatible INT,
+	
 	CONSTRAINT medicamento FOREIGN KEY (id_medicamento) 
+	
 				REFERENCES tablamedicamentos(id),
+				
 	CONSTRAINT medicamento_inc FOREIGN KEY (id_medicamento_incompatible) 
+	
 				REFERENCES tablamedicamentos(id)			
 )
 
