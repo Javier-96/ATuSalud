@@ -1103,7 +1103,9 @@
     return val;
   }
 
-  var noop$1 = function noop() {};
+  var noop$1 = function noop() {
+    
+  };
 
   var p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : {
     mark: noop$1,
