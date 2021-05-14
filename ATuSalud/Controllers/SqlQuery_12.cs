@@ -34,7 +34,7 @@ namespace ATuSalud.Controllers
         {
             ViewBag.Profesional = new SelectList(_context.TablaProfesional, "id", "nombre");
             ViewBag.Fecha = new SelectList(_context.TablaCitasPaciente, "Id", "Fecha_atencion");
-            string sql = "SELECT cp.id, cp.Fecha_atencion, p.Nombre " + 
+            string sql = "SELECT   p.Nombre, p.Apellido1,p.Apellido2, cp.Fecha_atencion" + 
                 " FROM tablacitaspaciente cp " + 
                 " INNER JOIN tablaprofesional p ON(p.id = cp.Id_profesional) " +
                 " WHERE 1=1 " +
@@ -51,9 +51,10 @@ namespace ATuSalud.Controllers
                     _context, sql,
                     x => new SqlQuery_12ViewData()
                     {
-                        id = x.GetInt32(0),
-                        fecha_atencion = x.GetDateTime(1),
-                        nombreProfesional = x.GetString(2)
+                        nombre = x.GetString(0),
+                        apellido1 = x.GetString(1),
+                        apellido2 = x.GetString(2),
+                        fecha_atencion = x.GetDateTime(3)
                     },
                     param
                 );

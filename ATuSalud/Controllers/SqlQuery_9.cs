@@ -23,12 +23,11 @@ namespace ATuSalud.Controllers
         }
         public IActionResult Index(int? id)
         {
-            string sql = " SELECT e.id,p.Nombre,p.Apellido1,e.Nombre " +
+            string sql = " SELECT p.nombre,p.apellido1,p.apellido2,e.Nombre " +
                          " FROM tablaepisodios e " +
                          " INNER JOIN tablapaciente p " +
                          " ON(p.id = e.Id_Paciente) " +
                          " WHERE e.FechaFinal IS NULL  " +
-                         
                          (id != null ? " AND p.id = @idPaciente" : "");
 
             MySqlParameter[] param =
@@ -41,10 +40,10 @@ namespace ATuSalud.Controllers
                     _context, sql,
                     x => new SqlQuery_9ViewData()
                     {
-                        id = x.GetInt32(0),
-                        nombre  = x.GetString(1),
-                        apellido1 = x.GetString(2),
-                        Episodio=x.GetString(3)
+                        nombre  = x.GetString(0),
+                        apellido1 = x.GetString(1),
+                        apellido2 = x.GetString(2),
+                        Episodio =x.GetString(3)
 
                     },param
                 );

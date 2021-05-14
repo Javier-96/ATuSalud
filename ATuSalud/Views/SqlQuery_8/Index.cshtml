@@ -25,7 +25,7 @@
     <table class="table table-striped">
         <thead class="bg-info text-light">
             <tr>
-                <th>Id del antecedente</th>
+                <th>Familiar</th>
                 <th>Enfermedad CIAP</th>
                 <th>Nombre de paciente</th>
             </tr>
@@ -33,7 +33,7 @@
         @foreach (SqlQuery_8ViewData item in Model)
         {
             <tr>
-                <td>@item.id_antecedente
+                <td>@item.familiar</td>
                 <td>@item.codigo - @item.enfermedad</td>
                 <td>@item.nombre @item.apellido1 @item.apellido2 </td>
             </tr>

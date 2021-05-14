@@ -24,7 +24,7 @@ namespace ATuSalud.Controllers
         //Vamos a pasarlo por Get
         public IActionResult Index(int? idPaciente)
         {
-            string sql = "SELECT a.id,c.codigo,c.enfermedad,p.nombre,p.apellido1,p.apellido2 " +
+            string sql = "SELECT a.familiar,c.codigo,c.enfermedad,p.nombre,p.apellido1,p.apellido2 " +
                 "FROM tablaantecedentes a INNER JOIN tablapaciente p " +
                 "ON(p.id = a.Id_paciente) INNER JOIN tablacodigociap c ON(c.id = a.id_ciap)" +
                 " WHERE 1=1 " +
@@ -40,7 +40,7 @@ namespace ATuSalud.Controllers
                     _context, sql,
                     x => new SqlQuery_8ViewData()
                     {
-                        id_antecedente = x.GetInt32(0),
+                        familiar = x.GetString(0),
                         codigo = x.GetString(1),
                         enfermedad = x.GetString(2),
                         nombre = x.GetString(3),

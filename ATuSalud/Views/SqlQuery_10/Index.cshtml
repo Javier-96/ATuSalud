@@ -9,10 +9,7 @@
 <form asp-action="Index" method="get">
     <div class="row">
         <div class="col-2">
-            Id Medicamento:
-        </div>
-        <div class="col-2">
-            Nombre Medicamento:
+            Paciente:
         </div>
         <div class="col-4">
             <select name="id" class="form-control"
@@ -34,19 +31,27 @@
         <thead class="bg-info text-light">
             <tr>
 
-                <th>Nombre Pacientes</th>
-                <th>Id Medicamento</th>
-                <th>Nombre Medicamento</th>
+                <th>Pacientes</th>
+                <th>Medicamento</th>
+                <th>Diagnóstico</th>
+                <th>Cantidad</th>
+                <th>Dosis</th>
+                <th>Duración</th>
+                <th>Fecha</th>
 
             </tr>
         </thead>
         @foreach (SqlQuery_10ViewData item in Model)
         {
-            <tr>
-                <td>@item.nombre_pacientes</td>
-                <td>@item.Id_medicamento</td>
-                <td>@item.Nombre_medicamento</td>
-            </tr>
+    <tr>
+        <td>@item.nombre @item.apellido1 @item.apellido2</td>
+        <td>@item.medicamento</td>
+        <td>@item.diagnostico</td>
+        <td>@item.cantidad</td>
+        <td>@item.dosis</td>
+        <td>@item.duracion</td>
+        <td>@item.fecha</td>
+    </tr>
         }
     </table>
 }

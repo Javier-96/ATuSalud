@@ -7,9 +7,15 @@ namespace ATuSalud.ViewData
 {
     public class SqlQuery_10ViewData
     {
-        public string nombre_pacientes { get; set; }
-        public int Id_medicamento { get; set; }
-        public string Nombre_medicamento { get; set; }
+        public string nombre { get; set; }
+        public string apellido1 { get; set; }
+        public string apellido2{ get; set; }
+        public string medicamento { get; set; }
+        public string diagnostico { get; set; }
+        public string cantidad { get; set; }
+        public string dosis { get; set; }
+        public string duracion { get; set; }
+        public string fecha { get; set; }
 
     }
 }

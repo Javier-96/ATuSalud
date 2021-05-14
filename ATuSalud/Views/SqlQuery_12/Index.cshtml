@@ -33,17 +33,16 @@
     <table class="table table-striped">
         <thead class="bg-info text-light">
             <tr>
-                <th>Id</th>
+                <th>Profesional</th>
                 <th>Fecha atencion</th>
-                <th>Nombre profesional</th>
+                
             </tr>
         </thead>
         @foreach (SqlQuery_12ViewData item in Model)
         {
             <tr>
-                <td>@item.id</td>
+                <td>@item.nombre @item.apellido1 @item.apellido2 </td>
                 <td>@item.fecha_atencion</td>
-                <td>@item.nombreProfesional</td>
             </tr>
         }
     </table>
