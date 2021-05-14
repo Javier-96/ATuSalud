@@ -37,9 +37,9 @@ A continuación, se definirán los requerimientos extraídos de las funcionalida
 SPRINT 2:
 Modificaciones realizadas sobre la base de datos:
 
-•ALTER TABLE tablacitaspaciente ADD Asistencia VARCHAR(200) NOT NULL
-			CHECK(Asistencia IN('Si','No'))
-			DEFAULT 'No'
+	•ALTER TABLE tablacitaspaciente ADD Asistencia VARCHAR(200) NOT NULL
+				CHECK(Asistencia IN('Si','No'))
+				DEFAULT 'No'
 
 	•CREATE TABLE Incompatibilidades(
 
@@ -58,7 +58,7 @@ Modificaciones realizadas sobre la base de datos:
 					REFERENCES tablamedicamentos(id)			
 	)
 
-•ALTER TABLE tablarecetas ADD dias_regenerado INT NOT NULL DEFAULT 0;
+	•ALTER TABLE tablarecetas ADD dias_regenerado INT NOT NULL DEFAULT 0;
 
 	•CREATE TABLE tablaCentros(
 		id INT PRIMARY KEY AUTO_INCREMENT,
@@ -66,8 +66,9 @@ Modificaciones realizadas sobre la base de datos:
 		direccion VARCHAR(200)
 	);
 
-•ALTER TABLE tablaprofesional ADD id_centro INT;
-•ALTER TABLE tablaprofesional ADD FOREIGN KEY (id_centro) REFERENCES tablaCentros(id);
+	•ALTER TABLE tablaprofesional ADD id_centro INT;
+	
+	•ALTER TABLE tablaprofesional ADD FOREIGN KEY (id_centro) REFERENCES tablaCentros(id);
 
 
 	•CREATE TABLE TablaEfectos_secundarios(
@@ -87,7 +88,8 @@ Modificaciones realizadas sobre la base de datos:
 			REFERENCES TablaEfectos_secundarios(id)
 	)
 
-•ALTER TABLE tablamedicamentos ADD id_efectoSec INT;
-•ALTER TABLE tablamedicamentos ADD FOREIGN KEY (id_efectoSec) REFERENCES TablaMedicamento_efectos(id);
+	•ALTER TABLE tablamedicamentos ADD id_efectoSec INT;
+	
+	•ALTER TABLE tablamedicamentos ADD FOREIGN KEY (id_efectoSec) REFERENCES TablaMedicamento_efectos(id);
 
-•ALTER TABLE tablamedicamentos DROP COLUMN Efectos_secundarios
+	•ALTER TABLE tablamedicamentos DROP COLUMN Efectos_secundarios
