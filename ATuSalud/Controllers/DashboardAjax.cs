@@ -35,8 +35,15 @@ namespace ATuSalud.Controllers
                 " FROM tablaepisodios e " +
                 " WHERE 1=1 " +
                 " AND e.FechaFinal IS NULL " +
-                " AND YEAR(e.FechaInicio) = @Anyo " +
+                (Anyo != 0 ? " AND YEAR(e.FechaInicio) = @Anyo " : "") +
                 " GROUP BY MONTH(FechaInicio) ";
+
+            MySqlParameter[] parametros =
+            {
+                new MySqlParameter("@Anyo", Anyo),
+                new MySqlParameter("@CodigoCIAPId", CodigoCIAPId),
+            };
+
             List<Dashboard1Listado1> lista =
             _sql.EjecutarSQL<Dashboard1Listado1>(
                     _context, sql,
@@ -44,14 +51,8 @@ namespace ATuSalud.Controllers
                     {
                         mes = x.GetInt32(0),
                         episodios = x.GetInt32(1)
-                    }
+                    }, parametros
                 );
-
-            MySqlParameter[] parametros =
-            {
-                new MySqlParameter("@Anyo", Anyo),
-                new MySqlParameter("@CodigoCIAPId", CodigoCIAPId),
-            };
 
             return PartialView(lista);
         }

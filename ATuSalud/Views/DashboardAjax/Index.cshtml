@@ -3,23 +3,22 @@
     ViewData["Title"] = "Index";
 }
 
-
-<!--<form asp-action="Index">
+<form asp-action="Index">
     <div class="row">
         <div class="col-1">
             Año:
         </div>
         <div class="col-4">
-            <select name="Anyo" class="form-control" asp-items="ViewBag.Anyo">
-                <option>Todos</option>
+            <select name="Anyo" id="Anyo" onchange="refrescarListados()" class="form-control" asp-items="ViewBag.Anyo">
+                <option>(Todos)</option>
             </select><br />
         </div>
         <div class="col-1">
             CIAP:
         </div>
         <div class="col-4">
-            <select name="CodigoCIAPId" class="form-control" asp-items="ViewBag.CodigosCIAP">
-                <option>Todos</option>
+            <select name="CodigoCIAPId" id="CIAP" onchange="refrescarListados()" class="form-control" asp-items="ViewBag.CodigosCIAP">
+                <option>(Todos)</option>
             </select><br />
         </div>
         <div class="col-2">
@@ -28,7 +27,6 @@
     </div>
 </form>
 <hr />
--->
 
 <div class="row">
     <div class="col-6" id="panel1">Listado 1</div>
@@ -44,6 +42,10 @@
         function refrescarListado1() {
             $.ajax({
                 url: '/DashBoardAjax/Listado1',
+                data: {
+                    CodigoCIAPId: $("#CIAP").val(),
+                    Anyo: $("#Anyo").val()
+                },
                 success: function (htmlPartial) {
                     $('#panel1').html(htmlPartial);
                 }
@@ -75,6 +77,13 @@
                     $('#panel4').html(htmlPartial);
                 }
             })
+        }
+
+        function refrescarListados() {
+            refrescarListado1();
+            refrescarListado2();
+            refrescarListado3();
+            refrescarListado4();
         }
 
         $(document).ready(function () {
