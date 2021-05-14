@@ -41,51 +41,51 @@ Modificaciones realizadas sobre la base de datos:
 			CHECK(Asistencia IN('Si','No'))
 			DEFAULT 'No'
 
-•CREATE TABLE Incompatibilidades(
+	•CREATE TABLE Incompatibilidades(
 
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	
-	id_medicamento INT,
-	
-	id_medicamento_incompatible INT,
-	
-	CONSTRAINT medicamento FOREIGN KEY (id_medicamento) 
-	
-				REFERENCES tablamedicamentos(id),
-				
-	CONSTRAINT medicamento_inc FOREIGN KEY (id_medicamento_incompatible) 
-	
-				REFERENCES tablamedicamentos(id)			
-)
+		id INT PRIMARY KEY AUTO_INCREMENT,
+
+		id_medicamento INT,
+
+		id_medicamento_incompatible INT,
+
+		CONSTRAINT medicamento FOREIGN KEY (id_medicamento) 
+
+					REFERENCES tablamedicamentos(id),
+
+		CONSTRAINT medicamento_inc FOREIGN KEY (id_medicamento_incompatible) 
+
+					REFERENCES tablamedicamentos(id)			
+	)
 
 •ALTER TABLE tablarecetas ADD dias_regenerado INT NOT NULL DEFAULT 0;
 
-•CREATE TABLE tablaCentros(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nombre VARCHAR(200),
-	direccion VARCHAR(200)
-);
+	•CREATE TABLE tablaCentros(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		nombre VARCHAR(200),
+		direccion VARCHAR(200)
+	);
 
 •ALTER TABLE tablaprofesional ADD id_centro INT;
 •ALTER TABLE tablaprofesional ADD FOREIGN KEY (id_centro) REFERENCES tablaCentros(id);
 
 
-•CREATE TABLE TablaEfectos_secundarios(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nombre_efecto VARCHAR(200),
-	severidad VARCHAR(200) CHECK (severidad IN('Grave','Medio','Leve')) 
-	DEFAULT 'Leve'
-);
+	•CREATE TABLE TablaEfectos_secundarios(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		nombre_efecto VARCHAR(200),
+		severidad VARCHAR(200) CHECK (severidad IN('Grave','Medio','Leve')) 
+		DEFAULT 'Leve'
+	);
 
-•CREATE TABLE TablaMedicamento_efectos(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	id_medicamento INT,
-	id_efectoSec INT,
-	FOREIGN KEY (id_medicamento) 
-		REFERENCES tablamedicamentos(id),
-	FOREIGN KEY (id_efectoSec)
-		REFERENCES TablaEfectos_secundarios(id)
-)
+	•CREATE TABLE TablaMedicamento_efectos(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		id_medicamento INT,
+		id_efectoSec INT,
+		FOREIGN KEY (id_medicamento) 
+			REFERENCES tablamedicamentos(id),
+		FOREIGN KEY (id_efectoSec)
+			REFERENCES TablaEfectos_secundarios(id)
+	)
 
 •ALTER TABLE tablamedicamentos ADD id_efectoSec INT;
 •ALTER TABLE tablamedicamentos ADD FOREIGN KEY (id_efectoSec) REFERENCES TablaMedicamento_efectos(id);
