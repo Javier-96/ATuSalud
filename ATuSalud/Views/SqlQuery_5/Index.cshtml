@@ -11,17 +11,19 @@
     <table class="table table-striped">
         <thead class="bg-info text-light">
             <tr>
-              
-                <th>Nombre Medicamento</th>
-              
+
+                <th>Medicamento</th>
+                <th>Forma farmaceutica</th>
+
             </tr>
         </thead>
         @foreach (SqlQuery_5ViewData item in Model)
         {
-            <tr>
-                <td>@item.nombre_medicamento</td>
-               
-            </tr>
+    <tr>
+        <td>@item.nombre_medicamento</td>
+        <td>@item.forma_farmaceutica</td>
+
+    </tr>
         }
     </table>
 }

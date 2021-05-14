@@ -11,18 +11,18 @@
     <table class="table table-striped">
         <thead class="bg-info text-light">
             <tr>
+                <th>Nombre</th>
                 <th>Primer apellido</th>
                 <th>Segundo apellido</th>
-                <th>Nombre</th>
                 <th>Fecha de nacimiento</th>
             </tr>
         </thead>
         @foreach (SqlQuery_2ViewData item in Model)
         {
     <tr>
+        <td>@item.nombre</td>
         <td>@item.apellido1</td>
         <td>@item.apellido2</td>
-        <td>@item.nombre</td>
         <td>@item.fecha_de_Nacimiento</td>
     </tr>
         }

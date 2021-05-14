@@ -12,13 +12,13 @@
         <thead class="bg-info text-light">
             <tr>
                 <th>Nombre</th>
-                <th>Numero de medicamentos</th>
+                <th>Número de medicamentos</th>
             </tr>
         </thead>
         @foreach (SqlQuery_7ViewData item in Model)
         {
             <tr>
-                <td>@item.nombre @item.apellido1</td>
+                <td>@item.nombre @item.apellido1 @item.apellido2</td>
                 <td>@item.mediaEpisodios</td>
             </tr>
         }

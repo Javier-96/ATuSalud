@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h3>Listado de cuantas citas diarias tiene de media cada profesional.</h3>
+<h3>Listado de cuantas citas diarias tiene de media cada profesional</h3>
 
 @if (Model != null)
 {
@@ -12,15 +12,17 @@
         <thead class="bg-info text-light">
             <tr>
                 <th>Fecha de atencion </th>
-                <th>Nombre</th>
+                <th>Nombre del profesional</th>
+                
             </tr>
         </thead>
         @foreach (SqlQuery_4ViewData item in Model)
         {
-            <tr>
-                <td>@item.media</td>
-                <td>@item.nombre</td>
-            </tr>
+    <tr>
+        <td>@item.media</td>
+        <td>@item.nombre @item.apellido1 @item.apellido2</td>
+      
+    </tr>
         }
     </table>
 }

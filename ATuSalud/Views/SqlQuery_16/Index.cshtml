@@ -11,20 +11,18 @@
     <table class="table table-striped">
         <thead class="bg-info text-light">
             <tr>
-                <th>Id del paciente</th>
                 <th>Nombre</th>
-                <th>Primer apellido</th>
-                <th>Segundo apellido</th>
+                <th>Medicamento 1</th>
+                <th>Medicamento 2</th>
             </tr>
         </thead>
         @foreach (SqlQuery_16ViewData item in Model)
         {
-            <tr>
-                <td>@item.id_paciente</td>
-                <td>@item.nombre</td>
-                <td>@item.apellido1</td>
-                <td>@item.apellido2</td>
-            </tr>
+    <tr>
+        <td>@item.nombre @item.apellido1 @item.apellido2</td>
+        <td>@item.medicamento1</td>
+        <td>@item.medicamento2</td>
+    </tr>
         }
     </table>
 }
