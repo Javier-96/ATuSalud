@@ -25,8 +25,62 @@ A continuación, se definirán los requerimientos extraídos de las funcionalida
 •	El sistema debe proporcionar al usuario una interfaz sobre la que visualizar toda la información de las citas de los pacientes junto con sus profesionales asociados.
 
 •	El sistema debe permitir al usuario añadir, modificar, actualizar y eliminar cualquier registro de la base de datos relacionado con gestión de citas, pacientes y profesionales.
+
 •	El sistema debe poder ser accedido a través de credenciales que identifiquen el tipo de usuario y sus permisos sobre la aplicación.
+
 •	El sistema debe permitir al usuario gestionar el historial clínico vinculado a un paciente concreto y visualizar su información por pantalla.
+
 •	El sistema debe permitir al usuario poder importar datos a través de plantillas en formato Excel para cumplimentar los diversos datos y campos de cada paciente y profesional.
+
 •	El sistema dividirá el historial clínico de cada paciente en subsecciones relacionadas con las patologías y episodios de cada paciente, medicamentos y recetas, antecedentes y datos físicos de importancia.
 
+SPRINT 2:
+Modificaciones realizadas sobre la base de datos:
+
+•ALTER TABLE tablacitaspaciente ADD Asistencia VARCHAR(200) NOT NULL
+			CHECK(Asistencia IN('Si','No'))
+			DEFAULT 'No'
+
+•CREATE TABLE Incompatibilidades(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	id_medicamento INT,
+	id_medicamento_incompatible INT,
+	CONSTRAINT medicamento FOREIGN KEY (id_medicamento) 
+				REFERENCES tablamedicamentos(id),
+	CONSTRAINT medicamento_inc FOREIGN KEY (id_medicamento_incompatible) 
+				REFERENCES tablamedicamentos(id)			
+)
+
+•ALTER TABLE tablarecetas ADD dias_regenerado INT NOT NULL DEFAULT 0;
+
+•CREATE TABLE tablaCentros(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nombre VARCHAR(200),
+	direccion VARCHAR(200)
+);
+
+•ALTER TABLE tablaprofesional ADD id_centro INT;
+•ALTER TABLE tablaprofesional ADD FOREIGN KEY (id_centro) REFERENCES tablaCentros(id);
+
+
+•CREATE TABLE TablaEfectos_secundarios(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nombre_efecto VARCHAR(200),
+	severidad VARCHAR(200) CHECK (severidad IN('Grave','Medio','Leve')) 
+	DEFAULT 'Leve'
+);
+
+•CREATE TABLE TablaMedicamento_efectos(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	id_medicamento INT,
+	id_efectoSec INT,
+	FOREIGN KEY (id_medicamento) 
+		REFERENCES tablamedicamentos(id),
+	FOREIGN KEY (id_efectoSec)
+		REFERENCES TablaEfectos_secundarios(id)
+)
+
+•ALTER TABLE tablamedicamentos ADD id_efectoSec INT;
+•ALTER TABLE tablamedicamentos ADD FOREIGN KEY (id_efectoSec) REFERENCES TablaMedicamento_efectos(id);
+
+•ALTER TABLE tablamedicamentos DROP COLUMN Efectos_secundarios
