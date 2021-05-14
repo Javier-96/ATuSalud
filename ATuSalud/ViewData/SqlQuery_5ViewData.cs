@@ -8,6 +8,7 @@ namespace ATuSalud.ViewData
     public class SqlQuery_5ViewData
     {
         public string nombre_medicamento { get; set; }
+        public string forma_farmaceutica { get; set; }
 
     }
 }
