@@ -33,7 +33,9 @@ namespace ATuSalud.Controllers
             string sql = " SELECT c.nombre,p.especialidad " +
                          " FROM tablaprofesional p " + 
                          " INNER JOIN tablaCentros c ON(c.id= p.id_centro) " +
-                         " WHERE p.especialidad = @especialidad ";
+                         " WHERE 1=1 " +
+                         (p.especialidad != null && p.especialidad != "todos" ? " AND p.especialidad = @especialidad" : "");
+
             MySqlParameter[] param =
              {
                 new MySqlParameter ("@especialidad", p.especialidad)
@@ -47,6 +49,7 @@ namespace ATuSalud.Controllers
                         especialidad = x.GetString(1),
                     },param
                 );
+            ViewBag.Especialidad = new SelectList(_context.TablaProfesional, "especialidad", "especialidad");
             return View(lista);
         }
     }
