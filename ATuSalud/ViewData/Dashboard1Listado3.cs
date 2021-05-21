@@ -7,7 +7,7 @@ namespace ATuSalud.ViewData
 {
     public class Dashboard1Listado3
     {
-        public int mes { get; set; }
+        public string mes { get; set; }
         public int episodios { get; set; }
     }
 }

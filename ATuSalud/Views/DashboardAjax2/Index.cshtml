@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
@@ -38,7 +37,7 @@
     <script>
         function refrescarListado1() {
             $.ajax({
-                url: '/DashBoardAjax/Listado1',
+                url: '/DashBoardAjax2/Listado1',
                 data: {
                     CodigoCIAPId: $("#CIAP").val(),
                     Anyo: $("#Anyo").val()
@@ -51,7 +50,7 @@
 
         function refrescarListado2() {
             $.ajax({
-                url: '/DashBoardAjax/Listado2',
+                url: '/DashBoardAjax2/Listado2',
                 data: {
                     CodigoCIAPId: $("#CIAP").val(),
                     Anyo: $("#Anyo").val()
@@ -64,7 +63,7 @@
 
         function refrescarListado3() {
             $.ajax({
-                url: '/DashBoardAjax/Listado3',
+                url: '/DashBoardAjax2/Listado3',
                 data: {
                     CodigoCIAPId: $("#CIAP").val(),
                     Anyo: $("#Anyo").val()
@@ -77,7 +76,7 @@
 
         function refrescarListado4() {
             $.ajax({
-                url: '/DashBoardAjax/Listado4',
+                url: '/DashBoardAjax2/Listado4',
                 data: {
                     CodigoCIAPId: $("#CIAP").val(),
                     Anyo: $("#Anyo").val()
@@ -103,3 +102,4 @@
         })
     </script>
 }
+

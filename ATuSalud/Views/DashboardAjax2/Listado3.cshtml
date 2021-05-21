@@ -1,0 +1,32 @@
+﻿@using ATuSalud.ViewData
+@model List<Dashboard2Listado3>
+@{
+    ViewData["Title"] = "Listado3";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Paciente
+            </th>
+            <th>
+                Numero de recetas
+            </th>
+        </tr>
+    </thead>
+    @foreach (Dashboard2Listado3 row in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @row.paciente
+                </td>
+                <td>
+                    @row.recetas
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+

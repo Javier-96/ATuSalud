@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace ATuSalud.ViewData
 {
-    public class Dashboard1Listado1
+    public class Dashboard2Listado3
     {
-        public string mes { get; set; }
-        public int episodios { get; set; }
+        public string paciente { get; set; }
+        public int recetas { get; set; }
     }
 }
