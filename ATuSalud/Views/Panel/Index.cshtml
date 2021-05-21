@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Informacion del paciente</h1>
+<hr />
+
+<input type="button"
+       onclick="abrirDialog('/TablaPacientes/Index')"
+       value="Buscar" />
+
+
+<input id="idPaciente" value="1" /> 
+
+<div class="row">
+    <div class="col-12" id="PanelEdicion">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" id="PanelPaciente">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" id="PanelDatosFisicos">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-6" id="PanelEpisodios"></div>
+    <div class="col-6" id="PanelRecetas"></div>
+</div>
+<div class="row">
+    <div class="col-4" id="PanelAntecedentes"></div>
+    <div class="col-4" id="PanelCitas"></div>
+    <div class="col-4" id="PanelProfesionales"></div>
+</div>
+
+
+
+
+@section Scripts{
+    <script>
+                    //Refrescar en todos los casos, el idAlumno esta relacionado en todas las ventanas de ayax
+        
+        function refrescar(url, destino) {
+            $.ajax({
+                url: url,
+                data: {
+                    idPaciente: $('#idPaciente').val()
+                },
+                success: function (res) {
+                    $('#' + destino).html(res);
+                }
+            })
+        }
+       
+        //Al inicial el programa pone cada listado en su div de panel mediante la funcion refrescar
+        function RefrescarTodo() {
+            refrescar('/TablaPacientes/Index', 'PanelPaciente');
+            refrescar('/TablaDatosFisicos/Index', 'PanelDatosFisicos');
+            refrescar('/TablaEpisodios/Index', 'PanelEpisodios');
+            refrescar('/TablaRecetas/Index', 'PanelRecetas');
+            refrescar('/TablaAntecendentes/Index', 'PanelAntecedentes');
+            refrescar('/TablaCitasPacientes/Index', 'PanelCitas');
+            refrescar('/TablaProfesional/Index', 'PanelProfesionales');
+        }
+        $(document).ready(function () {
+            RefrescarTodo()
+        })
+        
+        function abrirDialog(url) {
+            $.ajax({
+                url: url,
+                data: {
+                    idPaciente: $('#idPaciente').val()
+                },
+                success: function (res) {
+                    //La diferencia es que aqui hacemos un bootbox en el success
+                    bootbox.dialog({
+                        message: res,
+                        size: 'large'
+                    });
+                }
+            })
+        }
+
+        function ejecutar() {
+            bootbox.dialog({
+                message: "Hola <b>que tal</b>" +
+                    "<i>muy bien</i>" +
+                    "<input type='button' onclick='cerrar()' value='Prueba' /> ",
+                size: "large"
+            });
+        }
+        function cerrar() {
+            bootbox.hideAll();
+        }
+        function EnviarFormulario(url) {
+            $.ajax({
+                url: url,
+                method: 'post',
+                data: $('#Formulario').serialize(),
+                success: function (res) {
+                    RefrescarTodo();
+                    bootbox.hideAll();
+                }
+            })
+        }
+        
+        function SeleccionaRegistro(id) {
+            $('#idAlumno').val(id);
+            RefrescarTodo();
+            bootbox.hideAll();
+        }
+        
+    </script>
+
+}
+

@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaPatologias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaPatologias.Include("Paciente").Include("TablaCodigoCIAP").ToListAsync());
+            return PartialView(await _context.TablaPatologias.Include("Paciente").Include("TablaCodigoCIAP").ToListAsync());
         }
 
         // GET: TablaPatologias/Details/5

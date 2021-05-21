@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaRecetas
         public async Task<IActionResult> Index(int? id)
         {
-            return View(await _context.TablaRecetas.Include(x=>x.Paciente).Include(x => x.Episodio).Include(x=>x.Medicamento).ToListAsync());
+            return PartialView(await _context.TablaRecetas.Include(x=>x.Paciente).Include(x => x.Episodio).Include(x=>x.Medicamento).ToListAsync());
             
         }
 

@@ -23,7 +23,7 @@ namespace ATuSalud.Controllers
         public async Task<IActionResult> Index()
         {
             var contexto = _context.TablaEspacios.Include(t => t.Reserva);
-            return View(await contexto.ToListAsync());
+            return PartialView(await contexto.ToListAsync());
         }
 
         // GET: TablaEspacios/Details/5

@@ -29,7 +29,7 @@ namespace ATuSalud.Controllers
         // GET: TablaProfesional
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaProfesional.ToListAsync());
+            return PartialView(await _context.TablaProfesional.ToListAsync());
         }
 
         // GET: TablaProfesional/Details/5

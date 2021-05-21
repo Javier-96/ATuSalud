@@ -22,7 +22,7 @@ namespace ATuSalud.Controllers
         // GET: TablaMedicamentos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TablaMedicamentos.Include(x=>x.EfectoSec).ToListAsync());
+            return PartialView(await _context.TablaMedicamentos.Include(x=>x.EfectoSec).ToListAsync());
         }
 
         // GET: TablaMedicamentos/Details/5

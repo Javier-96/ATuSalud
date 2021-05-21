@@ -4,6 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
+<p>
+    <!--asp action es si quisieramos que vaya a otra ventana,-->
+    <!--<a asp-action="Create">Nuevo</a>-->
+    <a class="btn btn-primary text-white"
+       onclick="abrirDialog('/TablaPacientes/Create')"> Nuevo Paciente</a>
+</p>
+
+
 <div class="row">
     <br />
     <a asp-action="Create" class="btn btn-info " style="color: white;">Añadir pacientes</a>
