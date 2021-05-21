@@ -12,8 +12,13 @@
 </div>
 <br />
 <div class="row">
+    <div class="bg-info col-12 font-size:20px text-white m-0">
+        <i class="fas fa-plus"></i> Episodios
+    </div>
+</div>
+<div class="row">
     <table class="table table-striped text-center">
-        <thead class="bg-info text-light">
+        <thead class="bg-info text-light">   
             <tr>
                 <th>
                     Nombre del paciente
@@ -39,6 +44,7 @@
                     </td>
 
                     <td>
+                        
                         <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>|
                         <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a>|
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
