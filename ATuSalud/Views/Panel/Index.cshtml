@@ -49,6 +49,7 @@
                 url: url,
                 data: {
                     idPaciente: $('#idPaciente').val()
+
                 },
                 success: function (res) {
                     $('#' + destino).html(res);
@@ -58,13 +59,13 @@
        
         //Al inicial el programa pone cada listado en su div de panel mediante la funcion refrescar
         function RefrescarTodo() {
-            refrescar('/TablaPacientes/Index', 'PanelPaciente');
-            refrescar('/TablaDatosFisicos/Index', 'PanelDatosFisicos');
+            refrescar('/TablaPacientes/Details', 'PanelPaciente');
+            refrescar('/TablaDatosFisicos/Details', 'PanelDatosFisicos');
             refrescar('/TablaEpisodios/Index', 'PanelEpisodios');
-            refrescar('/TablaRecetas/Index', 'PanelRecetas');
-            refrescar('/TablaAntecendentes/Index', 'PanelAntecedentes');
-            refrescar('/TablaCitasPacientes/Index', 'PanelCitas');
-            refrescar('/TablaProfesional/Index', 'PanelProfesionales');
+            //refrescar('/TablaRecetas/Index', 'PanelRecetas');
+            //refrescar('/TablaAntecendentes/Index', 'PanelAntecedentes');
+            //refrescar('/TablaCitasPacientes/Index', 'PanelCitas');
+            //refrescar('/TablaProfesional/Index', 'PanelProfesionales');
         }
         $(document).ready(function () {
             RefrescarTodo()

@@ -26,21 +26,21 @@ namespace ATuSalud.Controllers
         }
 
         // GET: TablaDatosFisicos/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? idPaciente)
         {
-            if (id == null)
+            if (idPaciente == null)
             {
                 return NotFound();
             }
 
-            var tablaDatosFisicos = await _context.TablaDatosFisicos.Include(x=>x.Paciente)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var tablaDatosFisicos =  _context.TablaDatosFisicos.Include(x=>x.Paciente)
+                .Where(m => m.PacienteId == idPaciente).FirstOrDefault();
             if (tablaDatosFisicos == null)
             {
                 return NotFound();
             }
 
-            return View(tablaDatosFisicos);
+            return PartialView(tablaDatosFisicos);
         }
 
         // GET: TablaDatosFisicos/Create
