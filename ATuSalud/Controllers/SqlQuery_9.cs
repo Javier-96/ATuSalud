@@ -23,7 +23,7 @@ namespace ATuSalud.Controllers
         }
         public IActionResult Index(int? id)
         {
-            string sql = " SELECT p.nombre,p.apellido1,p.apellido2,e.Nombre " +
+            string sql = " SELECT p.nombre,p.apellido1,p.apellido2,ifnull(e.Nombre,'') " +
                          " FROM tablaepisodios e " +
                          " INNER JOIN tablapaciente p " +
                          " ON(p.id = e.Id_Paciente) " +

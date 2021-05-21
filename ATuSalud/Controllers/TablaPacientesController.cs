@@ -26,21 +26,21 @@ namespace ATuSalud.Controllers
         }
 
         // GET: TablaPacientes/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? idPaciente)
         {
-            if (id == null)
+            if (idPaciente == null)
             {
                 return NotFound();
             }
 
             var tablaPaciente = await _context.TablaPaciente
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == idPaciente);
             if (tablaPaciente == null)
             {
                 return NotFound();
             }
 
-            return View(tablaPaciente);
+            return PartialView(tablaPaciente);
         }
 
         // GET: TablaPacientes/Create
