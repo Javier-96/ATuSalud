@@ -22,16 +22,17 @@ namespace ATuSalud.Controllers
 
         public IActionResult Index()
         {
-            string sql = "SELECT p.nombre,c.codigo,c.Enfermedad,a.Familiar FROM tablapaciente p INNER JOIN tablaantecedentes a ON(p.id= a.Id_Paciente) INNER JOIN tablacodigociap c ON(c.id = a.id_ciap) WHERE c.Codigo LIKE 'P%'";
+            string sql = "SELECT p.nombre,p.Apellido1,c.codigo,c.Enfermedad,a.Familiar FROM tablapaciente p INNER JOIN tablaantecedentes a ON(p.id= a.Id_Paciente) INNER JOIN tablacodigociap c ON(c.id = a.id_ciap) WHERE c.Codigo LIKE 'P%'";
             List<SqlQuery_18ViewData> lista =
             _sql.EjecutarSQL<SqlQuery_18ViewData>(
                     _context, sql,
                     x => new SqlQuery_18ViewData()
                     { 
                         nombre = x.GetString(0),
-                        codigo = x.GetString(1),
-                        Enfermedad = x.GetString(2),
-                        Familiar = x.GetString(3)
+                        apellido1=x.GetString(1),
+                        codigo = x.GetString(2),
+                        Enfermedad = x.GetString(3),
+                        Familiar = x.GetString(4)
                     }
                 );
             return View(lista);

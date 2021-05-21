@@ -9,70 +9,58 @@
     <h4>Detalles del paciente</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            Nombre:
+        <dt class="col-sm-6">
+            Paciente:
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido1) @Html.DisplayFor(model => model.Apellido2)
         </dd>
-        <dt class="col-sm-2">
-            Primer apellido:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apellido1)
-        </dd>
-        <dt class="col-sm-2">
-            Segundo apellido:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Apellido2)
-        </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             Fecha de nacimiento:
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.Fecha_de_nacimiento)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             Seguro privado:
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.Seguro_privado)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             DNI:
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.DNI)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             Dirección postal:
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.Direccion_postal)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             Teléfono fijo:
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.telefono_fijo)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             Teléfono móvil 1:
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.telefono_movil_1)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             Teléfono móvil 2:
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.telefono_movil_2)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-6">
             @Html.DisplayNameFor(model => model.Sexo)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-6">
             @Html.DisplayFor(model => model.Sexo)
         </dd>
     </dl>
@@ -81,3 +69,5 @@
     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
     <a asp-action="Index">Volver a la lista</a>
 </div>
+<br />
+<br />
